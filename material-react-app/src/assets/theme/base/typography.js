@@ -50,15 +50,17 @@ const baseProperties = {
 
 const baseHeadingProperties = {
   fontFamily: baseProperties.fontFamily,
-  color: dark.main,
-  fontWeight: baseProperties.fontWeightBold,
+  color: "inherit",
+  fontWeight: baseProperties.fontWeightSemiBold,
+  letterSpacing: "-0.025em",
 };
 
 const baseDisplayProperties = {
   fontFamily: baseProperties.fontFamily,
-  color: dark.main,
-  fontWeight: baseProperties.fontWeightLight,
-  lineHeight: 1.2,
+  color: "inherit",
+  fontWeight: baseProperties.fontWeightBold,
+  lineHeight: 1.1,
+  letterSpacing: "-0.05em",
 };
 
 const typography = {
