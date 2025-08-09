@@ -17,14 +17,12 @@ import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
 // Layout
-import BasicLayout from "layouts/authentication/components/BasicLayout";
+import VisionAuthLayout from "layouts/authentication/components/VisionAuthLayout";
 import { AuthContext } from "context";
 
 // i18n
 import { useTranslation } from "react-i18next";
 
-// Image
-import bgImage from "assets/images/camion.jpg";
 import { io } from "socket.io-client";
 
 function Login() {
