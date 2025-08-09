@@ -26,14 +26,13 @@ export default styled(Drawer)(({ theme, ownerState }) => {
   const { xxl } = boxShadows;
   const { pxToRem, linearGradient } = functions;
 
-  let backgroundValue = darkMode
-    ? background.sidenav
-    : linearGradient(gradients.dark.main, gradients.dark.state);
+  // Vision UI enhanced background with glassmorphism
+  let backgroundValue = 'rgba(15, 20, 25, 0.95)';
 
   if (transparentSidenav) {
-    backgroundValue = transparent.main;
+    backgroundValue = 'rgba(15, 20, 25, 0.8)';
   } else if (whiteSidenav) {
-    backgroundValue = white.main;
+    backgroundValue = 'rgba(26, 32, 44, 0.95)';
   }
 
   // styles for the sidenav when miniSidenav={false}
