@@ -38,7 +38,7 @@ import { AuthContext } from "context";
 
 import theme from "assets/theme";
 import themeRTL from "assets/theme/theme-rtl";
-import themeDark from "assets/theme-dark";
+import themeDark from "assets/theme/dark-theme";
 import themeDarkRTL from "assets/theme-dark/theme-rtl";
 
 const getRoleBasedRoutes = (role, disabled = false) => {
