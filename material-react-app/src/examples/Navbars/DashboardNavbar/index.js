@@ -535,30 +535,74 @@ toast.success(t(action === "accept" ? "tripAccepted" : "tripRejected"));
                   
 
 
-              {renderMenu()}
-     <Menu
-  anchorEl={langAnchorEl}
-  open={Boolean(langAnchorEl)}
-  onClose={handleLanguageMenuClose}
-  sx={{ mt: 2 }}
->
-  <NotificationItem
-    icon={<Icon>flag</Icon>}
-    title={t("french")}
-    onClick={() => changeLanguage("fr")}
-  />
-  <NotificationItem
-    icon={<Icon>flag</Icon>}
-    title={t("english")}
-    onClick={() => changeLanguage("en")}
-  />
-</Menu>
+              {/* Logout Button */}
+              <MDButton
+                variant="outlined"
+                onClick={handleLogOut}
+                sx={{
+                  px: 3,
+                  py: 1,
+                  border: '2px solid rgba(227, 26, 26, 0.3)',
+                  background: 'rgba(227, 26, 26, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '12px',
+                  color: '#E31A1A',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  textTransform: 'none',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    border: '2px solid rgba(227, 26, 26, 0.5)',
+                    background: 'rgba(227, 26, 26, 0.2)',
+                    color: '#FFFFFF',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 4px 12px rgba(227, 26, 26, 0.3)',
+                  },
+                }}
+              >
+                <Icon sx={{ mr: 1, fontSize: 18 }}>logout</Icon>
+                {t("logout")}
+              </MDButton>
 
-              <MDBox>
-                <MDButton variant="gradient" color="info" onClick={handleLogOut}>
-  {t("logout")}
-                </MDButton>
-              </MDBox>
+              {/* Enhanced Notification Menu */}
+              {renderMenu()}
+
+              {/* Enhanced Language Menu */}
+              <Menu
+                anchorEl={langAnchorEl}
+                open={Boolean(langAnchorEl)}
+                onClose={handleLanguageMenuClose}
+                sx={{
+                  mt: 2,
+                  '& .MuiPaper-root': {
+                    background: 'rgba(26, 32, 44, 0.95)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '16px',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+                    overflow: 'hidden',
+                  },
+                }}
+              >
+                <NotificationItem
+                  icon={<Icon sx={{ color: '#00D4FF' }}>flag</Icon>}
+                  title={
+                    <MDTypography variant="body2" color="#FFFFFF" fontWeight="500">
+                      {t("french")}
+                    </MDTypography>
+                  }
+                  onClick={() => changeLanguage("fr")}
+                />
+                <NotificationItem
+                  icon={<Icon sx={{ color: '#00D4FF' }}>flag</Icon>}
+                  title={
+                    <MDTypography variant="body2" color="#FFFFFF" fontWeight="500">
+                      {t("english")}
+                    </MDTypography>
+                  }
+                  onClick={() => changeLanguage("en")}
+                />
+              </Menu>
             </MDBox>
           </MDBox>
         )}
