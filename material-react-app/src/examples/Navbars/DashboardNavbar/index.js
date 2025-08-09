@@ -401,50 +401,136 @@ toast.success(t(action === "accept" ? "tripAccepted" : "tripRejected"));
               />
             </MDBox>
 
-            <MDBox display="flex" alignItems="center" color={light ? "white" : "inherit"}>
-              {/* <Link to="/authentication/sign-in/basic">
-                <IconButton sx={navbarIconButton} size="small" disableRipple>
-                  <Icon sx={iconsStyle}>account_circle</Icon>
-                </IconButton>
-              </Link> */}
+            {/* Action Icons */}
+            <MDBox display="flex" alignItems="center" gap={1}>
 
-                            {user ? (
-  user.image ? (
-    <Avatar
-      src={`http://localhost:8080/uploads/${user.image}`}
-      alt={`${user.FirstName} ${user.LastName}`}
-      sx={{ width: 32, height: 32, ml: 1, cursor: "pointer", border: "2px solid white" }}
-      onClick={() => navigate("/profile")}
-    />
-  ) : (
-    <Icon
-      sx={{ fontSize: 32, ml: 1, cursor: "pointer", color: light || darkMode ? "#fff" : "inherit" }}
-      onClick={() => navigate("/profile")}
-    >
-      account_circle
-    </Icon>
-  )
-) : null}
+              {/* Language Selector */}
+              <IconButton
+                size="medium"
+                onClick={handleLanguageMenuOpen}
+                sx={{
+                  background: 'rgba(26, 32, 44, 0.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  width: '44px',
+                  height: '44px',
+                  color: '#A0AEC0',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: 'rgba(0, 212, 255, 0.1)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00D4FF',
+                    transform: 'translateY(-1px)',
+                  },
+                }}
+              >
+                <Icon>language</Icon>
+              </IconButton>
 
-              {/* <IconButton size="small" disableRipple sx={navbarIconButton} onClick={handleConfiguratorOpen}>
-                <Icon sx={iconsStyle}>settings</Icon>
-              </IconButton> */}
+              {/* Notifications */}
+              <IconButton
+                size="medium"
+                onClick={handleOpenMenu}
+                sx={{
+                  background: 'rgba(26, 32, 44, 0.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  width: '44px',
+                  height: '44px',
+                  color: '#A0AEC0',
+                  position: 'relative',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: 'rgba(0, 212, 255, 0.1)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00D4FF',
+                    transform: 'translateY(-1px)',
+                  },
+                }}
+              >
+                <Badge
+                  badgeContent={unseenCount > 9 ? "9+" : unseenCount}
+                  sx={{
+                    '& .MuiBadge-badge': {
+                      background: 'linear-gradient(135deg, #E31A1A, #EF5350)',
+                      color: 'white',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      minWidth: '18px',
+                      height: '18px',
+                      borderRadius: '9px',
+                      boxShadow: '0 0 10px rgba(227, 26, 26, 0.4)',
+                    },
+                  }}
+                >
+                  <Icon>notifications</Icon>
+                </Badge>
+              </IconButton>
 
-                  <IconButton
-                    size="small"
-                    disableRipple
-                    sx={navbarIconButton}
-                    onClick={handleLanguageMenuOpen}
-                  >
-                    <Icon sx={iconsStyle}>language</Icon>
-                  </IconButton>
-
-
-                  <IconButton size="small" disableRipple sx={navbarIconButton} onClick={handleOpenMenu}>
-                    <Badge badgeContent={unseenCount > 9 ? "9+" : unseenCount} color="error">
-                      <Icon sx={iconsStyle}>notifications</Icon>
-                    </Badge>
-                  </IconButton>
+              {/* User Profile */}
+              {user ? (
+                <MDBox
+                  display="flex"
+                  alignItems="center"
+                  gap={2}
+                  sx={{
+                    background: 'rgba(26, 32, 44, 0.6)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '12px',
+                    p: 1,
+                    pl: 2,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      background: 'rgba(0, 212, 255, 0.1)',
+                      border: '1px solid rgba(0, 212, 255, 0.3)',
+                      transform: 'translateY(-1px)',
+                    },
+                  }}
+                  onClick={() => navigate("/profile")}
+                >
+                  <MDBox>
+                    <MDTypography variant="body2" color="#FFFFFF" fontWeight="600" sx={{ fontSize: '0.875rem' }}>
+                      {user.FirstName} {user.LastName}
+                    </MDTypography>
+                    <MDTypography variant="caption" color="#718096" sx={{ fontSize: '0.75rem' }}>
+                      {user.role === 'super_admin' ? 'Administrator' :
+                       user.role === 'manager' ? 'Manager' : 'Driver'}
+                    </MDTypography>
+                  </MDBox>
+                  {user.image ? (
+                    <Avatar
+                      src={`http://localhost:8080/uploads/${user.image}`}
+                      alt={`${user.FirstName} ${user.LastName}`}
+                      sx={{
+                        width: 36,
+                        height: 36,
+                        border: '2px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                      }}
+                    />
+                  ) : (
+                    <MDBox
+                      sx={{
+                        width: 36,
+                        height: 36,
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #5C2DD5, #7B42F6)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '2px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                      }}
+                    >
+                      <Icon sx={{ color: 'white', fontSize: 20 }}>account_circle</Icon>
+                    </MDBox>
+                  )}
+                </MDBox>
+              ) : null}
 
                   
 
