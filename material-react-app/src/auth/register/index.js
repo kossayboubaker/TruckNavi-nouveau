@@ -11,8 +11,7 @@ import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
-import CoverLayout from "layouts/authentication/components/CoverLayout";
-import bgImage from "assets/images/bg-sign-up-cover.jpeg";
+import VisionAuthLayout from "layouts/authentication/components/VisionAuthLayout";
 
 import { AuthContext } from "context";
 import { useTranslation } from "react-i18next";
