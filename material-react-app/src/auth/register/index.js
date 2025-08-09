@@ -171,107 +171,375 @@ function Register() {
   };
 
   return (
-    <CoverLayout image={bgImage}>
-      <Card>
-        <MDBox variant="gradient" bgColor="info" borderRadius="lg" coloredShadow="info" mx={2} mt={-3} p={3} mb={1} textAlign="center">
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            {t("register.title")}
-          </MDTypography>
-          <MDTypography display="block" variant="button" color="white" my={1}>
-            {step === 1 ? t("register.step1") : t("register.step2")}
-          </MDTypography>
+    <VisionAuthLayout>
+      {/* Step Indicator */}
+      <MDBox mb={4} textAlign="center">
+        <MDBox display="flex" justifyContent="center" alignItems="center" mb={3}>
+          <MDBox
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="32px"
+            height="32px"
+            borderRadius="50%"
+            bgcolor={step >= 1 ? "#5C2DD5" : "rgba(255, 255, 255, 0.2)"}
+            color="white"
+            fontWeight="600"
+            fontSize="0.875rem"
+            mr={2}
+          >
+            1
+          </MDBox>
+          <MDBox
+            width="60px"
+            height="2px"
+            bgcolor={step > 1 ? "#5C2DD5" : "rgba(255, 255, 255, 0.2)"}
+            mr={2}
+          />
+          <MDBox
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="32px"
+            height="32px"
+            borderRadius="50%"
+            bgcolor={step >= 2 ? "#5C2DD5" : "rgba(255, 255, 255, 0.2)"}
+            color="white"
+            fontWeight="600"
+            fontSize="0.875rem"
+          >
+            2
+          </MDBox>
         </MDBox>
+        <MDTypography variant="body1" color="#A0AEC0" fontWeight="500">
+          {step === 1 ? t("register.step1") || "Personal Information" : t("register.step2") || "Company Information"}
+        </MDTypography>
+      </MDBox>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <form onSubmit={handleSubmit}>
-            {step === 1 && (
-              <>
-                <MDInput label={t("form1.firstName")} name="FirstName" fullWidth onChange={changeHandler} value={inputs.FirstName} error={!!errors.FirstName} />
-                {errors.FirstName && <MDTypography variant="caption" color="error">{errors.FirstName}</MDTypography>}
-                <MDBox mt={2} />
+      <form onSubmit={handleSubmit}>
+        {step === 1 && (
+          <>
+            {/* Step 1: Personal Information */}
+            <MDBox mb={3}>
+              <MDInput
+                label={t("form1.firstName")}
+                name="FirstName"
+                fullWidth
+                onChange={changeHandler}
+                value={inputs.FirstName}
+                error={!!errors.FirstName}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(15, 20, 25, 0.5)',
+                    '& input': { color: '#FFFFFF', py: 1.5 },
+                  },
+                  '& .MuiInputLabel-root': { color: '#A0AEC0' },
+                }}
+              />
+              {errors.FirstName && (
+                <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                  {errors.FirstName}
+                </MDTypography>
+              )}
+            </MDBox>
 
-                <MDInput label={t("form1.lastName")} name="LastName" fullWidth onChange={changeHandler} value={inputs.LastName} error={!!errors.LastName} />
-                {errors.LastName && <MDTypography variant="caption" color="error">{errors.LastName}</MDTypography>}
-                <MDBox mt={2} />
+            <MDBox mb={3}>
+              <MDInput
+                label={t("form1.lastName")}
+                name="LastName"
+                fullWidth
+                onChange={changeHandler}
+                value={inputs.LastName}
+                error={!!errors.LastName}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(15, 20, 25, 0.5)',
+                    '& input': { color: '#FFFFFF', py: 1.5 },
+                  },
+                  '& .MuiInputLabel-root': { color: '#A0AEC0' },
+                }}
+              />
+              {errors.LastName && (
+                <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                  {errors.LastName}
+                </MDTypography>
+              )}
+            </MDBox>
 
-                <MDInput label={t("form1.email")} name="email_user" fullWidth onChange={changeHandler} value={inputs.email_user} error={!!errors.email_user} />
-                {errors.email_user && <MDTypography variant="caption" color="error">{errors.email_user}</MDTypography>}
-                <MDBox mt={2} />
+            <MDBox mb={3}>
+              <MDInput
+                label={t("form1.email")}
+                name="email_user"
+                type="email"
+                fullWidth
+                onChange={changeHandler}
+                value={inputs.email_user}
+                error={!!errors.email_user}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(15, 20, 25, 0.5)',
+                    '& input': { color: '#FFFFFF', py: 1.5 },
+                  },
+                  '& .MuiInputLabel-root': { color: '#A0AEC0' },
+                }}
+              />
+              {errors.email_user && (
+                <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                  {errors.email_user}
+                </MDTypography>
+              )}
+            </MDBox>
 
-                <MDInput type="password" label={t("form1.password")} name="password" fullWidth onChange={changeHandler} value={inputs.password} error={!!errors.password} />
-                {errors.password && <MDTypography variant="caption" color="error">{errors.password}</MDTypography>}
-                <MDBox mt={2} />
+            <MDBox mb={3}>
+              <MDInput
+                type="password"
+                label={t("form1.password")}
+                name="password"
+                fullWidth
+                onChange={changeHandler}
+                value={inputs.password}
+                error={!!errors.password}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(15, 20, 25, 0.5)',
+                    '& input': { color: '#FFFFFF', py: 1.5 },
+                  },
+                  '& .MuiInputLabel-root': { color: '#A0AEC0' },
+                }}
+              />
+              {errors.password && (
+                <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                  {errors.password}
+                </MDTypography>
+              )}
+            </MDBox>
 
-                <MDInput label={t("form1.phoneNumber")} name="num_user" fullWidth onChange={changeHandler} value={inputs.num_user} error={!!errors.num_user} />
-                {errors.num_user && <MDTypography variant="caption" color="error">{errors.num_user}</MDTypography>}
-                <MDBox mt={2} />
+            <MDBox mb={3}>
+              <MDInput
+                label={t("form1.phoneNumber")}
+                name="num_user"
+                fullWidth
+                onChange={changeHandler}
+                value={inputs.num_user}
+                error={!!errors.num_user}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(15, 20, 25, 0.5)',
+                    '& input': { color: '#FFFFFF', py: 1.5 },
+                  },
+                  '& .MuiInputLabel-root': { color: '#A0AEC0' },
+                }}
+              />
+              {errors.num_user && (
+                <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                  {errors.num_user}
+                </MDTypography>
+              )}
+            </MDBox>
 
-                <FormControl fullWidth error={!!errors.country}>
-                  <Select name="country" value={inputs.country} onChange={changeHandler} displayEmpty>
-                    <MenuItem value=""><em>{t("form1.selectCity")}</em></MenuItem>
-                    {tunisianCities.map((city) => (
-                      <MenuItem key={city} value={city}>{city}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                {errors.country && <MDTypography variant="caption" color="error">{errors.country}</MDTypography>}
-                <MDBox mt={2} />
+            <MDBox mb={3}>
+              <FormControl fullWidth error={!!errors.country}>
+                <Select
+                  name="country"
+                  value={inputs.country}
+                  onChange={changeHandler}
+                  displayEmpty
+                  sx={{
+                    background: 'rgba(15, 20, 25, 0.5)',
+                    borderRadius: '12px',
+                    color: '#FFFFFF',
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      border: '1px solid rgba(0, 212, 255, 0.5)',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      border: '2px solid #00D4FF',
+                    },
+                  }}
+                >
+                  <MenuItem value=""><em>{t("form1.selectCity")}</em></MenuItem>
+                  {tunisianCities.map((city) => (
+                    <MenuItem key={city} value={city}>{city}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              {errors.country && (
+                <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                  {errors.country}
+                </MDTypography>
+              )}
+            </MDBox>
 
-                <MDBox display="flex" alignItems="center">
-                  <Checkbox name="agree" checked={inputs.agree} onChange={changeHandler} />
-                  <InputLabel htmlFor="agree">&nbsp;&nbsp;{t("form1.agreePrefix")}</InputLabel>
-                  <MDTypography component={Link} to="#" variant="button" fontWeight="bold" color="info" textGradient>
-                    {t("form1.terms")}
-                  </MDTypography>
-                </MDBox>
-                {errors.agree && <MDTypography variant="caption" color="error">{errors.agree}</MDTypography>}
-                <MDBox mt={3} textAlign="center">
-                  <MDTypography variant="button" color="text">
-                    {t("form1.alreadyAccount")}{" "}
-                    <MDTypography component={Link} to="/auth/login" variant="button" color="info" fontWeight="medium" textGradient>
-                      {t("form1.signIn")}
-                    </MDTypography>
-                  </MDTypography>
-                </MDBox>
-
-                <MDBox mt={4} mb={1}>
-                  <MDButton variant="gradient" color="info" fullWidth onClick={handleNext}>
-                    {t("buttons1.next")}
-                  </MDButton>
-                </MDBox>
-              </>
+            <MDBox display="flex" alignItems="center" mb={3}>
+              <Checkbox
+                name="agree"
+                checked={inputs.agree}
+                onChange={changeHandler}
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.3)',
+                  '&.Mui-checked': { color: '#00D4FF' },
+                }}
+              />
+              <MDTypography variant="body2" color="#A0AEC0" sx={{ ml: 1 }}>
+                {t("form1.agreePrefix")}{" "}
+                <MDTypography component={Link} to="#" variant="body2" color="#00D4FF" fontWeight="600">
+                  {t("form1.terms")}
+                </MDTypography>
+              </MDTypography>
+            </MDBox>
+            {errors.agree && (
+              <MDTypography variant="caption" color="#E31A1A" sx={{ mb: 2, display: 'block' }}>
+                {errors.agree}
+              </MDTypography>
             )}
 
-            {step === 2 && (
-              <>
-                {["company_name", "campany_email", "code_tva", "Campany_adress", "num_campany", "representant_legal"].map((field) => (
-                  <div key={field}>
-                    <MDInput label={t(`form1.${field}`)} name={field} fullWidth onChange={changeHandler} value={inputs[field]} error={!!errors[field]} />
-                    {errors[field] && <MDTypography variant="caption" color="error">{errors[field]}</MDTypography>}
-                    <MDBox mt={2} />
-                  </div>
-                ))}
+            <MDBox mb={3}>
+              <MDButton
+                variant="contained"
+                color="primary"
+                fullWidth
+                onClick={handleNext}
+                sx={{
+                  py: 1.5,
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  background: 'linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)',
+                  boxShadow: '0 0 20px rgba(92, 45, 213, 0.4)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)',
+                    boxShadow: '0 0 30px rgba(92, 45, 213, 0.6)',
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                {t("buttons1.next")}
+              </MDButton>
+            </MDBox>
 
-                {errors.error && <MDTypography variant="caption" color="error" mt={2}>{errors.errorText}</MDTypography>}
-                <MDBox mt={3} textAlign="center">
-                  <MDTypography variant="button" color="text">
-                    {t("form1.alreadyAccount")}{" "}
-                    <MDTypography component={Link} to="/auth/login" variant="button" color="info" fontWeight="medium" textGradient>
-                      {t("form1.signIn")}
-                    </MDTypography>
+            <MDBox textAlign="center">
+              <MDTypography variant="body2" color="#A0AEC0" fontWeight="500">
+                {t("form1.alreadyAccount")}{" "}
+                <MDTypography
+                  component={Link}
+                  to="/auth/login"
+                  variant="body2"
+                  color="#00D4FF"
+                  fontWeight="600"
+                  sx={{ textDecoration: 'none' }}
+                >
+                  {t("form1.signIn")}
+                </MDTypography>
+              </MDTypography>
+            </MDBox>
+          </>
+        )}
+
+        {step === 2 && (
+          <>
+            {/* Step 2: Company Information */}
+            {["company_name", "campany_email", "code_tva", "Campany_adress", "num_campany", "representant_legal"].map((field) => (
+              <MDBox key={field} mb={3}>
+                <MDInput
+                  label={t(`form1.${field}`)}
+                  name={field}
+                  fullWidth
+                  onChange={changeHandler}
+                  value={inputs[field]}
+                  error={!!errors[field]}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      background: 'rgba(15, 20, 25, 0.5)',
+                      '& input': { color: '#FFFFFF', py: 1.5 },
+                    },
+                    '& .MuiInputLabel-root': { color: '#A0AEC0' },
+                  }}
+                />
+                {errors[field] && (
+                  <MDTypography variant="caption" color="#E31A1A" sx={{ mt: 0.5, display: 'block' }}>
+                    {errors[field]}
                   </MDTypography>
-                </MDBox>
-                <MDBox mt={4} mb={1}>
-                  <MDButton variant="gradient" color="info" fullWidth type="submit">
-                    {t("buttons1.signUp")}
-                  </MDButton>
-                </MDBox>
-              </>
+                )}
+              </MDBox>
+            ))}
+
+            {errors.error && (
+              <MDBox mb={3}>
+                <MDTypography
+                  variant="body2"
+                  color="#E31A1A"
+                  sx={{
+                    p: 2,
+                    borderRadius: 2,
+                    backgroundColor: 'rgba(227, 26, 26, 0.1)',
+                    border: '1px solid rgba(227, 26, 26, 0.3)',
+                    textAlign: 'center',
+                  }}
+                >
+                  {errors.errorText}
+                </MDTypography>
+              </MDBox>
             )}
-          </form>
-        </MDBox>
-      </Card>
-    </CoverLayout>
+
+            <MDBox display="flex" gap={2} mb={3}>
+              <MDButton
+                variant="outlined"
+                fullWidth
+                onClick={() => setStep(1)}
+                sx={{
+                  py: 1.5,
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
+                  color: '#A0AEC0',
+                  '&:hover': {
+                    border: '2px solid rgba(0, 212, 255, 0.5)',
+                    backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                  },
+                }}
+              >
+                Back
+              </MDButton>
+              <MDButton
+                variant="contained"
+                color="primary"
+                fullWidth
+                type="submit"
+                sx={{
+                  py: 1.5,
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  background: 'linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)',
+                  boxShadow: '0 0 20px rgba(92, 45, 213, 0.4)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)',
+                    boxShadow: '0 0 30px rgba(92, 45, 213, 0.6)',
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                {t("buttons1.signUp")}
+              </MDButton>
+            </MDBox>
+
+            <MDBox textAlign="center">
+              <MDTypography variant="body2" color="#A0AEC0" fontWeight="500">
+                {t("form1.alreadyAccount")}{" "}
+                <MDTypography
+                  component={Link}
+                  to="/auth/login"
+                  variant="body2"
+                  color="#00D4FF"
+                  fontWeight="600"
+                  sx={{ textDecoration: 'none' }}
+                >
+                  {t("form1.signIn")}
+                </MDTypography>
+              </MDTypography>
+            </MDBox>
+          </>
+        )}
+      </form>
+    </VisionAuthLayout>
   );
 }
 
