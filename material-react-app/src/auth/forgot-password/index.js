@@ -12,9 +12,8 @@ import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 import MDAlert from "components/MDAlert";
 
-// Layout and image
-import CoverLayout from "layouts/authentication/components/CoverLayout";
-import bgImage from "assets/images/bg-reset-cover.jpeg";
+// Layout
+import VisionAuthLayout from "layouts/authentication/components/VisionAuthLayout";
 
 function ForgotPassword() {
   const { t } = useTranslation();
