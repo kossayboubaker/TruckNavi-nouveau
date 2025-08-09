@@ -127,27 +127,111 @@ function Sidenav({ color = "info", brand = "", brandName, routes, ...rest }) {
       variant="permanent"
       ownerState={{ transparentSidenav, whiteSidenav, miniSidenav, darkMode }}
     >
-      <MDBox pt={3} pb={1} px={4} textAlign="center">
+      <MDBox pt={4} pb={3} px={3} textAlign="center" position="relative">
+        {/* Close Button for Mobile */}
         <MDBox
           display={{ xs: "block", xl: "none" }}
           position="absolute"
-          top={0}
-          right={0}
-          p={1.625}
+          top={12}
+          right={12}
+          p={1}
           onClick={closeSidenav}
-          sx={{ cursor: "pointer" }}
+          sx={{
+            cursor: "pointer",
+            background: 'rgba(26, 32, 44, 0.6)',
+            borderRadius: '8px',
+            '&:hover': {
+              background: 'rgba(227, 26, 26, 0.2)',
+            },
+          }}
         >
-          <MDTypography variant="h6" color="secondary">
-            <Icon sx={{ fontWeight: "bold" }}>close</Icon>
-          </MDTypography>
+          <Icon sx={{ color: '#A0AEC0', fontSize: 20 }}>close</Icon>
         </MDBox>
-        <MDBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem" />}
-          <MDBox width={!brandName && "100%"} sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}>
-            <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>
-              {brandName}
-            </MDTypography>
-          </MDBox>
+
+        {/* Logo Section */}
+        <MDBox
+          component={NavLink}
+          to="/"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          flexDirection={miniSidenav ? "column" : "row"}
+          gap={miniSidenav ? 1 : 2}
+          sx={{
+            textDecoration: 'none',
+            p: 2,
+            borderRadius: '16px',
+            background: 'rgba(26, 32, 44, 0.6)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: 'rgba(92, 45, 213, 0.1)',
+              border: '1px solid rgba(92, 45, 213, 0.3)',
+              transform: 'translateY(-2px)',
+            },
+          }}
+        >
+          {brand ? (
+            <MDBox
+              component="img"
+              src={brand}
+              alt="Brand"
+              width={miniSidenav ? "2rem" : "2.5rem"}
+              height={miniSidenav ? "2rem" : "2.5rem"}
+              sx={{
+                borderRadius: '8px',
+                objectFit: 'cover',
+              }}
+            />
+          ) : (
+            <MDBox
+              sx={{
+                width: miniSidenav ? 32 : 40,
+                height: miniSidenav ? 32 : 40,
+                borderRadius: '8px',
+                background: 'linear-gradient(135deg, #5C2DD5, #7B42F6)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(92, 45, 213, 0.3)',
+              }}
+            >
+              <Icon sx={{ color: 'white', fontSize: miniSidenav ? 20 : 24 }}>local_shipping</Icon>
+            </MDBox>
+          )}
+
+          {!miniSidenav && (
+            <MDBox textAlign="left">
+              <MDTypography
+                variant="h6"
+                fontWeight="700"
+                sx={{
+                  color: '#FFFFFF',
+                  fontSize: '1.1rem',
+                  lineHeight: 1.2,
+                  background: 'linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                {brandName || "Fleet Pro"}
+              </MDTypography>
+              <MDTypography
+                variant="caption"
+                color="#718096"
+                sx={{
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  display: 'block',
+                  mt: 0.5,
+                }}
+              >
+                Dashboard
+              </MDTypography>
+            </MDBox>
+          )}
         </MDBox>
       </MDBox>
 
