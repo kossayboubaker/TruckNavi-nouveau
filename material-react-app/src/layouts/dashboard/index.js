@@ -25,7 +25,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
-import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
+import VisionStatCard from "examples/Cards/StatisticsCards/VisionStatCard";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
