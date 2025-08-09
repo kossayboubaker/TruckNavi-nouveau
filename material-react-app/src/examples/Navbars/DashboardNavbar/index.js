@@ -319,20 +319,87 @@ toast.success(t(action === "accept" ? "tripAccepted" : "tripRejected"));
         },
       }}
     >
-      <Toolbar sx={(theme) => navbarContainer(theme)}>
-        <MDBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-        <Breadcrumbs
-  icon="home"
-  title={(route[route.length - 1] ?? "Dashboard").toString()}
-  route={route}
-  light={light}
-/>
-
+      <Toolbar
+        sx={{
+          minHeight: '80px !important',
+          px: 3,
+          py: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <MDBox display="flex" alignItems="center" color="inherit">
+          <Breadcrumbs
+            icon="home"
+            title={(route[route.length - 1] ?? "Dashboard").toString()}
+            route={route}
+            light={true}
+            sx={{
+              '& .MuiBreadcrumbs-ol': {
+                color: '#A0AEC0',
+              },
+              '& .MuiBreadcrumbs-separator': {
+                color: '#718096',
+              },
+              '& a, & span': {
+                color: '#A0AEC0',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                '&:hover': {
+                  color: '#00D4FF',
+                },
+              },
+            }}
+          />
         </MDBox>
 
         {!isMini && (
-          <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <MDBox pr={1}><MDInput label={t("searchHere")} /></MDBox>
+          <MDBox display="flex" alignItems="center" gap={2}>
+            {/* Enhanced Search Input */}
+            <MDBox sx={{ minWidth: { xs: 200, md: 300 } }}>
+              <MDInput
+                label={t("searchHere")}
+                placeholder="Search fleet, drivers, routes..."
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(26, 32, 44, 0.6)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '12px',
+                    height: '44px',
+                    '& fieldset': {
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      transition: 'all 0.3s ease',
+                    },
+                    '&:hover fieldset': {
+                      border: '1px solid rgba(0, 212, 255, 0.5)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      border: '2px solid #00D4FF',
+                      boxShadow: '0 0 0 4px rgba(0, 212, 255, 0.1)',
+                    },
+                    '& input': {
+                      color: '#FFFFFF',
+                      fontSize: '0.875rem',
+                      '&::placeholder': {
+                        color: '#718096',
+                        opacity: 1,
+                      },
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: '#A0AEC0',
+                    fontSize: '0.875rem',
+                    '&.Mui-focused': {
+                      color: '#00D4FF',
+                    },
+                  },
+                  '& .MuiInputAdornment-root': {
+                    color: '#A0AEC0',
+                  },
+                }}
+              />
+            </MDBox>
 
             <MDBox display="flex" alignItems="center" color={light ? "white" : "inherit"}>
               {/* <Link to="/authentication/sign-in/basic">
