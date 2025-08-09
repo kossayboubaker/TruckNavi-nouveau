@@ -43,64 +43,57 @@ function Dashboard() {
       <DashboardNavbar />
       <MDBox py={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="dark"
-                icon="weekend"
-                title="Bookings"
-                count={281}
-                percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
-                }}
-              />
-            </MDBox>
+          <Grid item xs={12} sm={6} lg={3}>
+            <VisionStatCard
+              color="primary"
+              icon="local_shipping"
+              title="Active Trucks"
+              count={281}
+              percentage={{
+                color: "success",
+                amount: "+12%",
+                label: "vs last month",
+              }}
+            />
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                icon="leaderboard"
-                title="Today's Users"
-                count="2,300"
-                percentage={{
-                  color: "success",
-                  amount: "+3%",
-                  label: "than last month",
-                }}
-              />
-            </MDBox>
+          <Grid item xs={12} sm={6} lg={3}>
+            <VisionStatCard
+              color="info"
+              icon="route"
+              title="Total Routes"
+              count="2,300"
+              percentage={{
+                color: "success",
+                amount: "+8%",
+                label: "vs last month",
+              }}
+            />
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="success"
-                icon="store"
-                title="Revenue"
-                count="34k"
-                percentage={{
-                  color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
-                }}
-              />
-            </MDBox>
+          <Grid item xs={12} sm={6} lg={3}>
+            <VisionStatCard
+              color="success"
+              icon="attach_money"
+              title="Revenue"
+              count="€34.2K"
+              percentage={{
+                color: "success",
+                amount: "+15%",
+                label: "vs yesterday",
+              }}
+            />
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                icon="person_add"
-                title="Followers"
-                count="+91"
-                percentage={{
-                  color: "success",
-                  amount: "",
-                  label: "Just updated",
-                }}
-              />
-            </MDBox>
+          <Grid item xs={12} sm={6} lg={3}>
+            <VisionStatCard
+              color="secondary"
+              icon="people"
+              title="Active Drivers"
+              count="142"
+              percentage={{
+                color: "warning",
+                amount: "-2%",
+                label: "vs last week",
+              }}
+            />
           </Grid>
         </Grid>
         <MDBox mt={4.5}>
