@@ -609,38 +609,62 @@ toast.success(t(action === "accept" ? "tripAccepted" : "tripRejected"));
       </Toolbar>
 
       {popupNotif && (
-        <div
+        <MDBox
           className={popupVisible ? "fadein-popup" : "fadeout-popup"}
-          style={{
+          sx={{
             position: "fixed",
-            top: 80,
-            right: 20,
+            top: 100,
+            right: 24,
             zIndex: 1300,
-            backgroundColor: "#f9f9f9",
-            borderLeft: "4px solid #007bff",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-            borderRadius: "6px",
-            padding: "10px 16px",
-            maxWidth: "320px",
+            background: 'rgba(26, 32, 44, 0.95)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderLeft: '4px solid #00D4FF',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 212, 255, 0.2)',
+            borderRadius: '16px',
+            p: 2,
+            maxWidth: '360px',
+            minWidth: '300px',
           }}
         >
-          <NotificationItem
-            icon={<Icon>notifications</Icon>}
-            title={
-              <span
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#333",
-                  fontFamily: "Arial, sans-serif",
-                  textTransform: "none",
-                  fontWeight: "400",
+          <MDBox display="flex" alignItems="flex-start" gap={2}>
+            <MDBox
+              sx={{
+                width: 40,
+                height: 40,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #00D4FF, #4DDDFF)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Icon sx={{ color: 'white', fontSize: 20 }}>notifications</Icon>
+            </MDBox>
+
+            <MDBox flex={1}>
+              <MDTypography
+                variant="body2"
+                color="#FFFFFF"
+                fontWeight="500"
+                sx={{
+                  fontSize: '0.875rem',
+                  lineHeight: 1.4,
+                  mb: 1,
                 }}
                 dangerouslySetInnerHTML={{ __html: popupNotif.message }}
               />
-            }
-            date={new Date(popupNotif.createdAt).toLocaleString()}
-          />
-        </div>
+              <MDTypography
+                variant="caption"
+                color="#718096"
+                sx={{ fontSize: '0.75rem' }}
+              >
+                {new Date(popupNotif.createdAt).toLocaleString()}
+              </MDTypography>
+            </MDBox>
+          </MDBox>
+        </MDBox>
       )}
     </AppBar>
     </DashboardLayout>
