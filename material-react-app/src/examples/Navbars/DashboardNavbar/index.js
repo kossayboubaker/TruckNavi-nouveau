@@ -297,133 +297,374 @@ toast.success(t(action === "accept" ? "tripAccepted" : "tripRejected"));
     <AppBar
       position={absolute ? "absolute" : navbarType}
       color="inherit"
-      sx={(theme) => navbar(theme, { transparentNavbar, absolute, light, darkMode })}
+      sx={{
+        background: 'rgba(15, 20, 25, 0.95)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        borderRadius: 0,
+        borderTop: 'none',
+        borderLeft: 'none',
+        borderRight: 'none',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+        minHeight: '80px',
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '2px',
+          background: 'linear-gradient(90deg, transparent, #5C2DD5, #7B42F6, #00D4FF, transparent)',
+        },
+      }}
     >
-      <Toolbar sx={(theme) => navbarContainer(theme)}>
-        <MDBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-        <Breadcrumbs
-  icon="home"
-  title={(route[route.length - 1] ?? "Dashboard").toString()}
-  route={route}
-  light={light}
-/>
-
+      <Toolbar
+        sx={{
+          minHeight: '80px !important',
+          px: 3,
+          py: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <MDBox display="flex" alignItems="center" color="inherit">
+          <Breadcrumbs
+            icon="home"
+            title={(route[route.length - 1] ?? "Dashboard").toString()}
+            route={route}
+            light={true}
+            sx={{
+              '& .MuiBreadcrumbs-ol': {
+                color: '#A0AEC0',
+              },
+              '& .MuiBreadcrumbs-separator': {
+                color: '#718096',
+              },
+              '& a, & span': {
+                color: '#A0AEC0',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                '&:hover': {
+                  color: '#00D4FF',
+                },
+              },
+            }}
+          />
         </MDBox>
 
         {!isMini && (
-          <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <MDBox pr={1}><MDInput label={t("searchHere")} /></MDBox>
+          <MDBox display="flex" alignItems="center" gap={2}>
+            {/* Enhanced Search Input */}
+            <MDBox sx={{ minWidth: { xs: 200, md: 300 } }}>
+              <MDInput
+                label={t("searchHere")}
+                placeholder="Search fleet, drivers, routes..."
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    background: 'rgba(26, 32, 44, 0.6)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '12px',
+                    height: '44px',
+                    '& fieldset': {
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      transition: 'all 0.3s ease',
+                    },
+                    '&:hover fieldset': {
+                      border: '1px solid rgba(0, 212, 255, 0.5)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      border: '2px solid #00D4FF',
+                      boxShadow: '0 0 0 4px rgba(0, 212, 255, 0.1)',
+                    },
+                    '& input': {
+                      color: '#FFFFFF',
+                      fontSize: '0.875rem',
+                      '&::placeholder': {
+                        color: '#718096',
+                        opacity: 1,
+                      },
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: '#A0AEC0',
+                    fontSize: '0.875rem',
+                    '&.Mui-focused': {
+                      color: '#00D4FF',
+                    },
+                  },
+                  '& .MuiInputAdornment-root': {
+                    color: '#A0AEC0',
+                  },
+                }}
+              />
+            </MDBox>
 
-            <MDBox display="flex" alignItems="center" color={light ? "white" : "inherit"}>
-              {/* <Link to="/authentication/sign-in/basic">
-                <IconButton sx={navbarIconButton} size="small" disableRipple>
-                  <Icon sx={iconsStyle}>account_circle</Icon>
-                </IconButton>
-              </Link> */}
+            {/* Action Icons */}
+            <MDBox display="flex" alignItems="center" gap={1}>
 
-                            {user ? (
-  user.image ? (
-    <Avatar
-      src={`http://localhost:8080/uploads/${user.image}`}
-      alt={`${user.FirstName} ${user.LastName}`}
-      sx={{ width: 32, height: 32, ml: 1, cursor: "pointer", border: "2px solid white" }}
-      onClick={() => navigate("/profile")}
-    />
-  ) : (
-    <Icon
-      sx={{ fontSize: 32, ml: 1, cursor: "pointer", color: light || darkMode ? "#fff" : "inherit" }}
-      onClick={() => navigate("/profile")}
-    >
-      account_circle
-    </Icon>
-  )
-) : null}
+              {/* Language Selector */}
+              <IconButton
+                size="medium"
+                onClick={handleLanguageMenuOpen}
+                sx={{
+                  background: 'rgba(26, 32, 44, 0.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  width: '44px',
+                  height: '44px',
+                  color: '#A0AEC0',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: 'rgba(0, 212, 255, 0.1)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00D4FF',
+                    transform: 'translateY(-1px)',
+                  },
+                }}
+              >
+                <Icon>language</Icon>
+              </IconButton>
 
-              {/* <IconButton size="small" disableRipple sx={navbarIconButton} onClick={handleConfiguratorOpen}>
-                <Icon sx={iconsStyle}>settings</Icon>
-              </IconButton> */}
+              {/* Notifications */}
+              <IconButton
+                size="medium"
+                onClick={handleOpenMenu}
+                sx={{
+                  background: 'rgba(26, 32, 44, 0.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  width: '44px',
+                  height: '44px',
+                  color: '#A0AEC0',
+                  position: 'relative',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: 'rgba(0, 212, 255, 0.1)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00D4FF',
+                    transform: 'translateY(-1px)',
+                  },
+                }}
+              >
+                <Badge
+                  badgeContent={unseenCount > 9 ? "9+" : unseenCount}
+                  sx={{
+                    '& .MuiBadge-badge': {
+                      background: 'linear-gradient(135deg, #E31A1A, #EF5350)',
+                      color: 'white',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      minWidth: '18px',
+                      height: '18px',
+                      borderRadius: '9px',
+                      boxShadow: '0 0 10px rgba(227, 26, 26, 0.4)',
+                    },
+                  }}
+                >
+                  <Icon>notifications</Icon>
+                </Badge>
+              </IconButton>
 
-                  <IconButton
-                    size="small"
-                    disableRipple
-                    sx={navbarIconButton}
-                    onClick={handleLanguageMenuOpen}
-                  >
-                    <Icon sx={iconsStyle}>language</Icon>
-                  </IconButton>
-
-
-                  <IconButton size="small" disableRipple sx={navbarIconButton} onClick={handleOpenMenu}>
-                    <Badge badgeContent={unseenCount > 9 ? "9+" : unseenCount} color="error">
-                      <Icon sx={iconsStyle}>notifications</Icon>
-                    </Badge>
-                  </IconButton>
+              {/* User Profile */}
+              {user ? (
+                <MDBox
+                  display="flex"
+                  alignItems="center"
+                  gap={2}
+                  sx={{
+                    background: 'rgba(26, 32, 44, 0.6)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '12px',
+                    p: 1,
+                    pl: 2,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      background: 'rgba(0, 212, 255, 0.1)',
+                      border: '1px solid rgba(0, 212, 255, 0.3)',
+                      transform: 'translateY(-1px)',
+                    },
+                  }}
+                  onClick={() => navigate("/profile")}
+                >
+                  <MDBox>
+                    <MDTypography variant="body2" color="#FFFFFF" fontWeight="600" sx={{ fontSize: '0.875rem' }}>
+                      {user.FirstName} {user.LastName}
+                    </MDTypography>
+                    <MDTypography variant="caption" color="#718096" sx={{ fontSize: '0.75rem' }}>
+                      {user.role === 'super_admin' ? 'Administrator' :
+                       user.role === 'manager' ? 'Manager' : 'Driver'}
+                    </MDTypography>
+                  </MDBox>
+                  {user.image ? (
+                    <Avatar
+                      src={`http://localhost:8080/uploads/${user.image}`}
+                      alt={`${user.FirstName} ${user.LastName}`}
+                      sx={{
+                        width: 36,
+                        height: 36,
+                        border: '2px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                      }}
+                    />
+                  ) : (
+                    <MDBox
+                      sx={{
+                        width: 36,
+                        height: 36,
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #5C2DD5, #7B42F6)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '2px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                      }}
+                    >
+                      <Icon sx={{ color: 'white', fontSize: 20 }}>account_circle</Icon>
+                    </MDBox>
+                  )}
+                </MDBox>
+              ) : null}
 
                   
 
 
-              {renderMenu()}
-     <Menu
-  anchorEl={langAnchorEl}
-  open={Boolean(langAnchorEl)}
-  onClose={handleLanguageMenuClose}
-  sx={{ mt: 2 }}
->
-  <NotificationItem
-    icon={<Icon>flag</Icon>}
-    title={t("french")}
-    onClick={() => changeLanguage("fr")}
-  />
-  <NotificationItem
-    icon={<Icon>flag</Icon>}
-    title={t("english")}
-    onClick={() => changeLanguage("en")}
-  />
-</Menu>
+              {/* Logout Button */}
+              <MDButton
+                variant="outlined"
+                onClick={handleLogOut}
+                sx={{
+                  px: 3,
+                  py: 1,
+                  border: '2px solid rgba(227, 26, 26, 0.3)',
+                  background: 'rgba(227, 26, 26, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '12px',
+                  color: '#E31A1A',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  textTransform: 'none',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    border: '2px solid rgba(227, 26, 26, 0.5)',
+                    background: 'rgba(227, 26, 26, 0.2)',
+                    color: '#FFFFFF',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 4px 12px rgba(227, 26, 26, 0.3)',
+                  },
+                }}
+              >
+                <Icon sx={{ mr: 1, fontSize: 18 }}>logout</Icon>
+                {t("logout")}
+              </MDButton>
 
-              <MDBox>
-                <MDButton variant="gradient" color="info" onClick={handleLogOut}>
-  {t("logout")}
-                </MDButton>
-              </MDBox>
+              {/* Enhanced Notification Menu */}
+              {renderMenu()}
+
+              {/* Enhanced Language Menu */}
+              <Menu
+                anchorEl={langAnchorEl}
+                open={Boolean(langAnchorEl)}
+                onClose={handleLanguageMenuClose}
+                sx={{
+                  mt: 2,
+                  '& .MuiPaper-root': {
+                    background: 'rgba(26, 32, 44, 0.95)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '16px',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+                    overflow: 'hidden',
+                  },
+                }}
+              >
+                <NotificationItem
+                  icon={<Icon sx={{ color: '#00D4FF' }}>flag</Icon>}
+                  title={
+                    <MDTypography variant="body2" color="#FFFFFF" fontWeight="500">
+                      {t("french")}
+                    </MDTypography>
+                  }
+                  onClick={() => changeLanguage("fr")}
+                />
+                <NotificationItem
+                  icon={<Icon sx={{ color: '#00D4FF' }}>flag</Icon>}
+                  title={
+                    <MDTypography variant="body2" color="#FFFFFF" fontWeight="500">
+                      {t("english")}
+                    </MDTypography>
+                  }
+                  onClick={() => changeLanguage("en")}
+                />
+              </Menu>
             </MDBox>
           </MDBox>
         )}
       </Toolbar>
 
       {popupNotif && (
-        <div
+        <MDBox
           className={popupVisible ? "fadein-popup" : "fadeout-popup"}
-          style={{
+          sx={{
             position: "fixed",
-            top: 80,
-            right: 20,
+            top: 100,
+            right: 24,
             zIndex: 1300,
-            backgroundColor: "#f9f9f9",
-            borderLeft: "4px solid #007bff",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-            borderRadius: "6px",
-            padding: "10px 16px",
-            maxWidth: "320px",
+            background: 'rgba(26, 32, 44, 0.95)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderLeft: '4px solid #00D4FF',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 212, 255, 0.2)',
+            borderRadius: '16px',
+            p: 2,
+            maxWidth: '360px',
+            minWidth: '300px',
           }}
         >
-          <NotificationItem
-            icon={<Icon>notifications</Icon>}
-            title={
-              <span
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#333",
-                  fontFamily: "Arial, sans-serif",
-                  textTransform: "none",
-                  fontWeight: "400",
+          <MDBox display="flex" alignItems="flex-start" gap={2}>
+            <MDBox
+              sx={{
+                width: 40,
+                height: 40,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #00D4FF, #4DDDFF)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Icon sx={{ color: 'white', fontSize: 20 }}>notifications</Icon>
+            </MDBox>
+
+            <MDBox flex={1}>
+              <MDTypography
+                variant="body2"
+                color="#FFFFFF"
+                fontWeight="500"
+                sx={{
+                  fontSize: '0.875rem',
+                  lineHeight: 1.4,
+                  mb: 1,
                 }}
                 dangerouslySetInnerHTML={{ __html: popupNotif.message }}
               />
-            }
-            date={new Date(popupNotif.createdAt).toLocaleString()}
-          />
-        </div>
+              <MDTypography
+                variant="caption"
+                color="#718096"
+                sx={{ fontSize: '0.75rem' }}
+              >
+                {new Date(popupNotif.createdAt).toLocaleString()}
+              </MDTypography>
+            </MDBox>
+          </MDBox>
+        </MDBox>
       )}
     </AppBar>
     </DashboardLayout>

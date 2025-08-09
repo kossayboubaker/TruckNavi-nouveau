@@ -21,12 +21,16 @@ Coded by www.creative-tim.com
 
 const colors = {
   background: {
-    default: "#f0f2f5",
+    default: "#0F1419",
+    paper: "#1A202C",
+    card: "#1A202C",
   },
 
   text: {
-    main: "#7b809a",
-    focus: "#7b809a",
+    main: "#A0AEC0",
+    focus: "#FFFFFF",
+    secondary: "#718096",
+    disabled: "#4A5568",
   },
 
   transparent: {
@@ -45,96 +49,124 @@ const colors = {
   },
 
   primary: {
-    main: "#e91e63",
-    focus: "#e91e63",
+    main: "#1E2A78",
+    focus: "#1A237E",
+    light: "#3F51B5",
+    dark: "#0D1642",
   },
 
   secondary: {
-    main: "#7b809a",
-    focus: "#8f93a9",
+    main: "#5C2DD5",
+    focus: "#7B42F6",
+    light: "#9F7AEA",
+    dark: "#44337A",
   },
 
   info: {
-    main: "#1A73E8",
-    focus: "#1662C4",
+    main: "#00D4FF",
+    focus: "#00B8E6",
+    light: "#4DDDFF",
+    dark: "#0099CC",
   },
 
   success: {
-    main: "#4CAF50",
-    focus: "#67bb6a",
+    main: "#01B574",
+    focus: "#00A65A",
+    light: "#34C88A",
+    dark: "#016B41",
   },
 
   warning: {
-    main: "#fb8c00",
-    focus: "#fc9d26",
+    main: "#FFB547",
+    focus: "#FF9F1A",
+    light: "#FFC56B",
+    dark: "#E6A041",
   },
 
   error: {
-    main: "#F44335",
-    focus: "#f65f53",
+    main: "#E31A1A",
+    focus: "#D50000",
+    light: "#EF5350",
+    dark: "#B71C1C",
   },
 
   light: {
-    main: "#f0f2f5",
-    focus: "#f0f2f5",
+    main: "#2D3748",
+    focus: "#4A5568",
   },
 
   dark: {
-    main: "#344767",
-    focus: "#2c3c58",
+    main: "#0F1419",
+    focus: "#1A202C",
   },
 
   grey: {
-    100: "#f8f9fa",
-    200: "#f0f2f5",
-    300: "#dee2e6",
-    400: "#ced4da",
-    500: "#adb5bd",
-    600: "#6c757d",
-    700: "#495057",
-    800: "#343a40",
-    900: "#212529",
+    100: "#F7FAFC",
+    200: "#EDF2F7",
+    300: "#E2E8F0",
+    400: "#CBD5E0",
+    500: "#A0AEC0",
+    600: "#718096",
+    700: "#4A5568",
+    800: "#2D3748",
+    900: "#1A202C",
   },
 
   gradients: {
     primary: {
-      main: "#EC407A",
-      state: "#D81B60",
+      main: "linear-gradient(135deg, #1E2A78 0%, #3F51B5 100%)",
+      state: "linear-gradient(135deg, #1A237E 0%, #303F9F 100%)",
     },
 
     secondary: {
-      main: "#747b8a",
-      state: "#495361",
+      main: "linear-gradient(135deg, #5C2DD5 0%, #7B42F6 100%)",
+      state: "linear-gradient(135deg, #44337A 0%, #673AB7 100%)",
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "linear-gradient(135deg, #00D4FF 0%, #4DDDFF 100%)",
+      state: "linear-gradient(135deg, #00B8E6 0%, #0099CC 100%)",
     },
 
     success: {
-      main: "#66BB6A",
-      state: "#43A047",
+      main: "linear-gradient(135deg, #01B574 0%, #34C88A 100%)",
+      state: "linear-gradient(135deg, #00A65A 0%, #2E7D32 100%)",
     },
 
     warning: {
-      main: "#FFA726",
-      state: "#FB8C00",
+      main: "linear-gradient(135deg, #FFB547 0%, #FFC56B 100%)",
+      state: "linear-gradient(135deg, #FF9F1A 0%, #F57C00 100%)",
     },
 
     error: {
-      main: "#EF5350",
-      state: "#E53935",
+      main: "linear-gradient(135deg, #E31A1A 0%, #EF5350 100%)",
+      state: "linear-gradient(135deg, #D50000 0%, #C62828 100%)",
     },
 
     light: {
-      main: "#EBEFF4",
-      state: "#CED4DA",
+      main: "linear-gradient(135deg, #2D3748 0%, #4A5568 100%)",
+      state: "linear-gradient(135deg, #1A202C 0%, #2D3748 100%)",
     },
 
     dark: {
-      main: "#42424a",
-      state: "#191919",
+      main: "linear-gradient(135deg, #0F1419 0%, #1A202C 100%)",
+      state: "linear-gradient(135deg, #000000 0%, #0F1419 100%)",
+    },
+
+    // Special Vision UI gradients
+    visionPrimary: {
+      main: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
+      state: "linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)",
+    },
+
+    visionNeon: {
+      main: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
+      state: "linear-gradient(135deg, #00B8E6 0%, #00A65A 100%)",
+    },
+
+    glassEffect: {
+      main: "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+      border: "rgba(255, 255, 255, 0.2)",
     },
   },
 

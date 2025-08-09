@@ -26,14 +26,13 @@ export default styled(Drawer)(({ theme, ownerState }) => {
   const { xxl } = boxShadows;
   const { pxToRem, linearGradient } = functions;
 
-  let backgroundValue = darkMode
-    ? background.sidenav
-    : linearGradient(gradients.dark.main, gradients.dark.state);
+  // Vision UI enhanced background with glassmorphism
+  let backgroundValue = 'rgba(15, 20, 25, 0.95)';
 
   if (transparentSidenav) {
-    backgroundValue = transparent.main;
+    backgroundValue = 'rgba(15, 20, 25, 0.8)';
   } else if (whiteSidenav) {
-    backgroundValue = white.main;
+    backgroundValue = 'rgba(26, 32, 44, 0.95)';
   }
 
   // styles for the sidenav when miniSidenav={false}
@@ -83,8 +82,28 @@ export default styled(Drawer)(({ theme, ownerState }) => {
 
   return {
     "& .MuiDrawer-paper": {
-      boxShadow: xxl,
-      border: "none",
+      background: backgroundValue,
+      backdropFilter: 'blur(20px)',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      borderRight: '1px solid rgba(255, 255, 255, 0.1)',
+      borderLeft: 'none',
+      borderTop: 'none',
+      borderBottom: 'none',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 1px 0 0 rgba(255, 255, 255, 0.1)',
+      position: 'relative',
+      overflow: 'hidden',
+
+      // Decorative gradient overlay
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '3px',
+        height: '100%',
+        background: 'linear-gradient(180deg, #5C2DD5 0%, #7B42F6 50%, #00D4FF 100%)',
+        zIndex: 1,
+      },
 
       ...(miniSidenav ? drawerCloseStyles() : drawerOpenStyles()),
     },

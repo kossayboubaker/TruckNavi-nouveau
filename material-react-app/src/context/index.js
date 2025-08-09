@@ -98,7 +98,7 @@ function MaterialUIControllerProvider({ children }) {
     openConfigurator: false,
     direction: "ltr",
     layout: "dashboard",
-    darkMode: false,
+    darkMode: true, // Force dark mode for Vision UI theme
   };
 
   const [controller, dispatch] = useReducer(reducer, initialState);

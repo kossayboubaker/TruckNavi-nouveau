@@ -28,28 +28,22 @@ import boxShadow from "assets/theme/functions/boxShadow";
 const { black, white, tabs, coloredShadows } = colors;
 
 const boxShadows = {
-  xs: boxShadow([0, 2], [9, -5], black.main, 0.15),
-  sm: boxShadow([0, 5], [10, 0], black.main, 0.12),
-  md: `${boxShadow([0, 4], [6, -1], black.main, 0.1)}, ${boxShadow(
-    [0, 2],
-    [4, -1],
-    black.main,
-    0.06
-  )}`,
-  lg: `${boxShadow([0, 10], [15, -3], black.main, 0.1)}, ${boxShadow(
-    [0, 4],
-    [6, -2],
-    black.main,
-    0.05
-  )}`,
-  xl: `${boxShadow([0, 20], [25, -5], black.main, 0.1)}, ${boxShadow(
-    [0, 10],
-    [10, -5],
-    black.main,
-    0.04
-  )}`,
-  xxl: boxShadow([0, 20], [27, 0], black.main, 0.05),
-  inset: boxShadow([0, 1], [2, 0], black.main, 0.075, "inset"),
+  xs: "0 2px 4px rgba(0, 0, 0, 0.25)",
+  sm: "0 4px 8px rgba(0, 0, 0, 0.3)",
+  md: "0 8px 25px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2)",
+  lg: "0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.25)",
+  xl: "0 20px 60px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.3)",
+  xxl: "0 25px 80px rgba(0, 0, 0, 0.6)",
+  inset: "inset 0 1px 3px rgba(0, 0, 0, 0.2)",
+
+  // Glass morphism shadows
+  glass: "0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+  glassHover: "0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)",
+
+  // Neon glow effects
+  neonBlue: "0 0 20px rgba(30, 42, 120, 0.4), 0 0 40px rgba(30, 42, 120, 0.2)",
+  neonPurple: "0 0 20px rgba(92, 45, 213, 0.4), 0 0 40px rgba(92, 45, 213, 0.2)",
+  neonCyan: "0 0 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2)",
   colored: {
     primary: `${boxShadow([0, 4], [20, 0], black.main, 0.14)}, ${boxShadow(
       [0, 7],

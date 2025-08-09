@@ -25,7 +25,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
-import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
+import VisionStatCard from "examples/Cards/StatisticsCards/VisionStatCard";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
@@ -41,116 +41,171 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={3}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="dark"
-                icon="weekend"
-                title="Bookings"
+      <MDBox
+        py={3}
+        sx={{
+          background: 'transparent',
+          minHeight: 'calc(100vh - 120px)',
+        }}
+      >
+        {/* Statistics Cards Section */}
+        <MDBox mb={4}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6} lg={3}>
+              <VisionStatCard
+                color="primary"
+                icon="local_shipping"
+                title="Active Trucks"
                 count={281}
                 percentage={{
                   color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
+                  amount: "+12%",
+                  label: "vs last month",
                 }}
               />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                icon="leaderboard"
-                title="Today's Users"
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3}>
+              <VisionStatCard
+                color="info"
+                icon="route"
+                title="Total Routes"
                 count="2,300"
                 percentage={{
                   color: "success",
-                  amount: "+3%",
-                  label: "than last month",
+                  amount: "+8%",
+                  label: "vs last month",
                 }}
               />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3}>
+              <VisionStatCard
                 color="success"
-                icon="store"
+                icon="attach_money"
                 title="Revenue"
-                count="34k"
+                count="€34.2K"
                 percentage={{
                   color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
+                  amount: "+15%",
+                  label: "vs yesterday",
                 }}
               />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                icon="person_add"
-                title="Followers"
-                count="+91"
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3}>
+              <VisionStatCard
+                color="secondary"
+                icon="people"
+                title="Active Drivers"
+                count="142"
                 percentage={{
-                  color: "success",
-                  amount: "",
-                  label: "Just updated",
+                  color: "warning",
+                  amount: "-2%",
+                  label: "vs last week",
                 }}
               />
-            </MDBox>
+            </Grid>
           </Grid>
-        </Grid>
-        <MDBox mt={4.5}>
+        </MDBox>
+
+        {/* Charts Section */}
+        <MDBox mb={4}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
+              <MDBox
+                sx={{
+                  '& .MuiCard-root': {
+                    background: 'rgba(26, 32, 44, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '20px',
+                  },
+                }}
+              >
                 <ReportsBarChart
                   color="info"
-                  title="website views"
-                  description="Last Campaign Performance"
-                  date="campaign sent 2 days ago"
+                  title="Fleet Performance"
+                  description="Route Efficiency Analysis"
+                  date="updated 2 hours ago"
                   chart={reportsBarChartData}
                 />
               </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
+              <MDBox
+                sx={{
+                  '& .MuiCard-root': {
+                    background: 'rgba(26, 32, 44, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '20px',
+                  },
+                }}
+              >
                 <ReportsLineChart
                   color="success"
-                  title="daily sales"
+                  title="Daily Revenue"
                   description={
                     <>
-                      (<strong>+15%</strong>) increase in today sales.
+                      (<strong>+15%</strong>) increase in today's earnings.
                     </>
                   }
-                  date="updated 4 min ago"
+                  date="updated 30 min ago"
                   chart={sales}
                 />
               </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
+              <MDBox
+                sx={{
+                  '& .MuiCard-root': {
+                    background: 'rgba(26, 32, 44, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '20px',
+                  },
+                }}
+              >
                 <ReportsLineChart
                   color="dark"
-                  title="completed tasks"
-                  description="Last Campaign Performance"
-                  date="just updated"
+                  title="Delivery Status"
+                  description="Completed vs Pending Deliveries"
+                  date="live updates"
                   chart={tasks}
                 />
               </MDBox>
             </Grid>
           </Grid>
         </MDBox>
+
+        {/* Projects and Orders Section */}
         <MDBox>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={8}>
-              <Projects />
+              <MDBox
+                sx={{
+                  '& .MuiCard-root': {
+                    background: 'rgba(26, 32, 44, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '20px',
+                  },
+                }}
+              >
+                <Projects />
+              </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <OrdersOverview />
+              <MDBox
+                sx={{
+                  '& .MuiCard-root': {
+                    background: 'rgba(26, 32, 44, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '20px',
+                  },
+                }}
+              >
+                <OrdersOverview />
+              </MDBox>
             </Grid>
           </Grid>
         </MDBox>
