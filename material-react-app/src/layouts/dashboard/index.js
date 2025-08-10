@@ -207,6 +207,7 @@ const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) =
             color: '#ffffff',
             fontWeight: 700,
             mb: 0.5,
+            textShadow: '0 2px 8px rgba(0,0,0,0.4)',
           }}
         >
           {title}
@@ -214,7 +215,9 @@ const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) =
         <Typography
           variant="body2"
           sx={{
-            color: 'rgba(255, 255, 255, 0.7)',
+            color: 'rgba(255, 255, 255, 0.8)',
+            fontSize: '0.9rem',
+            textShadow: '0 1px 4px rgba(0,0,0,0.3)',
           }}
         >
           {subtitle}
