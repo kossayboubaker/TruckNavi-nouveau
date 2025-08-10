@@ -395,8 +395,8 @@ function Dashboard() {
                 value="284"
                 percentage="+12.5%"
                 trend="up"
-                gradient="rgba(255, 159, 64, 0.2), rgba(255, 99, 132, 0.15)"
-                shadowColor="rgba(255, 159, 64, 0.3)"
+                gradient="rgba(255, 159, 64, 0.3), rgba(255, 99, 132, 0.2)"
+                shadowColor="rgba(255, 159, 64, 0.4)"
               />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -406,8 +406,8 @@ function Dashboard() {
                 value="2,481"
                 percentage="+8.2%"
                 trend="up"
-                gradient="rgba(54, 162, 235, 0.2), rgba(0, 212, 255, 0.15)"
-                shadowColor="rgba(0, 212, 255, 0.3)"
+                gradient="rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.2)"
+                shadowColor="rgba(59, 130, 246, 0.4)"
               />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -417,8 +417,8 @@ function Dashboard() {
                 value="$31,124"
                 percentage="+15.8%"
                 trend="up"
-                gradient="rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.15)"
-                shadowColor="rgba(139, 92, 246, 0.3)"
+                gradient="rgba(16, 185, 129, 0.3), rgba(52, 211, 153, 0.2)"
+                shadowColor="rgba(16, 185, 129, 0.4)"
               />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -428,8 +428,8 @@ function Dashboard() {
                 value="2,125"
                 percentage="+3.1%"
                 trend="up"
-                gradient="rgba(75, 192, 192, 0.2), rgba(0, 255, 136, 0.15)"
-                shadowColor="rgba(0, 255, 136, 0.3)"
+                gradient="rgba(236, 72, 153, 0.3), rgba(251, 113, 133, 0.2)"
+                shadowColor="rgba(236, 72, 153, 0.4)"
               />
             </Grid>
           </Grid>
