@@ -93,10 +93,10 @@ function Dashboard() {
           <Grid container spacing={3}>
             <Grid item xs={6} md={3}>
               <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ color: "#01B574", fontWeight: 700 }}>
+                <Typography variant="h4" sx={{ color: "#00E5CC", fontWeight: 700 }}>
                   98.5%
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#718096" }}>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
                   On-Time Delivery
                 </Typography>
               </Box>
@@ -106,27 +106,27 @@ function Dashboard() {
                 <Typography variant="h4" sx={{ color: "#00D4FF", fontWeight: 700 }}>
                   24/7
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#718096" }}>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
                   Live Tracking
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={6} md={3}>
               <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ color: "#FFB547", fontWeight: 700 }}>
+                <Typography variant="h4" sx={{ color: "#4D9AFF", fontWeight: 700 }}>
                   15.2K
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#718096" }}>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
                   Deliveries/Month
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={6} md={3}>
               <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ color: "#7B42F6", fontWeight: 700 }}>
+                <Typography variant="h4" sx={{ color: "#8B5CF6", fontWeight: 700 }}>
                   €2.8M
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#718096" }}>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
                   Monthly Revenue
                 </Typography>
               </Box>
