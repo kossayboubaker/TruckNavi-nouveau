@@ -236,86 +236,49 @@ function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
 
   return (
-    <>
-      {/* Premium Background inspired by the screenshots */}
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(135deg, #1a0d2e 0%, #0f0f23 25%, #16213e 50%, #0a0e27 75%, #1a0d2e 100%)',
-          zIndex: -10,
-        }}
-      />
+    <VisionDashboardLayout
+      sx={{
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #1a1a2e 75%, #16213e 100%)',
+        minHeight: '100vh',
+        height: '100vh',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+        <DashboardNavbar />
 
-      {/* Floating gradient orbs */}
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflow: 'hidden',
-          pointerEvents: 'none',
-          zIndex: -5,
-        }}
-      >
-        {/* Purple orb */}
+        {/* Background avec gradient violet/bleu comme la capture */}
         <Box
           sx={{
             position: 'absolute',
-            top: '10%',
-            right: '-300px',
-            width: '600px',
-            height: '600px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)',
-            animation: 'float 20s ease-in-out infinite',
-            '@keyframes float': {
-              '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
-              '33%': { transform: 'translate(30px, -30px) rotate(120deg)' },
-              '66%': { transform: 'translate(-20px, 20px) rotate(240deg)' },
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #1a1a2e 75%, #16213e 100%)',
+            zIndex: -1,
+          }}
+        />
+        
+        {/* Contenu du dashboard avec scroll interne */}
+        <MDBox
+          sx={{
+            height: 'calc(100vh - 120px)',
+            overflowY: 'auto',
+            paddingRight: '8px',
+            '&::-webkit-scrollbar': {
+              width: '4px',
+            },
+            '&::-webkit-scrollbar-track': {
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '2px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+              borderRadius: '2px',
             },
           }}
-        />
-        
-        {/* Cyan orb */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: '10%',
-            left: '-300px',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 70%)',
-            animation: 'float 25s ease-in-out infinite reverse',
-          }}
-        />
-        
-        {/* Pink orb */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)',
-            animation: 'float 30s ease-in-out infinite',
-          }}
-        />
-      </Box>
-
-      <VisionDashboardLayout>
-        <DashboardNavbar />
-        
-        {/* Hero Section inspired by the screenshots */}
+        >
         <MDBox mb={3}>
           <Card
             sx={{
@@ -542,8 +505,8 @@ function Dashboard() {
         </MDBox>
 
         <Footer />
+        </MDBox>
       </VisionDashboardLayout>
-    </>
   );
 }
 
