@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import PremiumApp from "PremiumApp";
+import TestApp from "TestApp";
 import { AuthContextProvider } from "context";
 import { SocketProvider } from "context/SocketContext/SocketContext";
 import './index.css';
