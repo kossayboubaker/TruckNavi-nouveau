@@ -218,14 +218,14 @@ const AppContent = (
   <>
     {!isMapRoute && !isPublicPath && layout === "dashboard" && !loadingRoutes && <DashboardNavbar />}
     {!isMapRoute && !isPublicPath && layout === "dashboard" && !loadingRoutes && (
-      <Sidenav
+      <VisionSidenav
         color={sidenavColor}
         brand={
           companyInfo?.image_campany
             ? `http://localhost:8080/uploads/${companyInfo.image_campany}`
             : null
         }
-        brandName={companyInfo?.company_name || ""}
+        brandName={companyInfo?.company_name || "Fleet Manager"}
         routes={userRoutes}
         onMouseEnter={() => setMiniSidenav(dispatch, false)}
         onMouseLeave={() => setMiniSidenav(dispatch, true)}
