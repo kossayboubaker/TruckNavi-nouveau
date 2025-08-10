@@ -210,38 +210,38 @@ const visionColors = {
     },
   },
 
-  // Component-specific colors
+  // Component-specific colors (basé sur la capture Vision UI)
   components: {
     card: {
-      background: "rgba(26, 32, 44, 0.8)",
-      border: "rgba(255, 255, 255, 0.1)",
-      hover: "rgba(26, 32, 44, 0.9)",
+      background: "rgba(21, 27, 61, 0.85)",               // Fond des cartes comme dans la capture
+      border: "rgba(184, 194, 219, 0.12)",               // Bordure subtile bleutée
+      hover: "rgba(21, 27, 61, 0.95)",                   // Hover plus opaque
     },
     button: {
       primary: {
-        background: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
-        hover: "linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)",
-        shadow: "0 0 20px rgba(92, 45, 213, 0.4)",
-        hoverShadow: "0 0 30px rgba(92, 45, 213, 0.6)",
+        background: "linear-gradient(135deg, #00D4FF 0%, #4D9AFF 100%)",           // Cyan principal
+        hover: "linear-gradient(135deg, #00B8E6 0%, #0099CC 100%)",               // Hover plus sombre
+        shadow: "0 0 25px rgba(0, 212, 255, 0.5)",                               // Ombre cyan intense
+        hoverShadow: "0 0 35px rgba(0, 212, 255, 0.7)",                          // Ombre hover plus intense
       },
       secondary: {
-        background: "rgba(255, 255, 255, 0.1)",
-        hover: "rgba(255, 255, 255, 0.2)",
-        border: "rgba(255, 255, 255, 0.2)",
+        background: "rgba(184, 194, 219, 0.1)",                                  // Fond subtil bleuté
+        hover: "rgba(184, 194, 219, 0.2)",                                       // Hover bleuté
+        border: "rgba(0, 212, 255, 0.3)",                                        // Bordure cyan
       },
     },
     input: {
-      background: "rgba(15, 20, 25, 0.5)",
-      border: "rgba(255, 255, 255, 0.1)",
-      focus: "rgba(0, 212, 255, 0.3)",
-      label: "#A0AEC0",
-      text: "#FFFFFF",
+      background: "rgba(11, 14, 39, 0.6)",               // Fond sombre bleuté
+      border: "rgba(184, 194, 219, 0.15)",               // Bordure bleutée
+      focus: "rgba(0, 212, 255, 0.4)",                   // Focus cyan intense
+      label: "#B8C2DB",                                  // Label bleu clair
+      text: "#FFFFFF",                                   // Texte blanc
     },
     table: {
-      header: "rgba(15, 20, 25, 0.8)",
-      row: "rgba(26, 32, 44, 0.4)",
-      rowHover: "rgba(26, 32, 44, 0.6)",
-      border: "rgba(255, 255, 255, 0.1)",
+      header: "rgba(11, 14, 39, 0.8)",                   // En-tête sombre
+      row: "rgba(21, 27, 61, 0.4)",                      // Lignes translucides
+      rowHover: "rgba(21, 27, 61, 0.7)",                 // Hover lignes
+      border: "rgba(184, 194, 219, 0.1)",                // Bordures subtiles
     },
   },
 
