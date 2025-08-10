@@ -112,28 +112,28 @@ const visionColors = {
       state: "linear-gradient(135deg, #000000 0%, #0F1419 100%)",
     },
     accent: {
-      neon: "linear-gradient(135deg, #00D4FF 0%, #00E5CC 100%)",        // Cyan vers turquoise
-      neonAlt: "linear-gradient(135deg, #8B5CF6 0%, #00D4FF 100%)",     // Violet vers cyan
-      warm: "linear-gradient(135deg, #FF8A47 0%, #FFB547 100%)",        // Orange chaud
+      neon: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
+      neonAlt: "linear-gradient(135deg, #9F7AEA 0%, #FF69B4 100%)",
+      warm: "linear-gradient(135deg, #FFB547 0%, #FF8A80 100%)",
     },
     vision: {
-      primary: "linear-gradient(135deg, #0B0E27 0%, #151B3D 50%, #1E2A78 100%)",    // Bleu foncé tri-color
-      secondary: "linear-gradient(135deg, #00D4FF 0%, #4D9AFF 50%, #00E5CC 100%)",  // Cyan tri-color
-      tertiary: "linear-gradient(135deg, #8B5CF6 0%, #00D4FF 50%, #00E5CC 100%)",   // Violet vers turquoise
+      primary: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
+      secondary: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
+      tertiary: "linear-gradient(135deg, #FFB547 0%, #9F7AEA 100%)",
     },
     glass: {
-      primary: "linear-gradient(135deg, rgba(184, 194, 219, 0.15) 0%, rgba(184, 194, 219, 0.05) 100%)",
-      secondary: "linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(77, 154, 255, 0.1) 100%)",
-      accent: "linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 229, 204, 0.15) 100%)",
+      primary: "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+      secondary: "linear-gradient(135deg, rgba(92, 45, 213, 0.2) 0%, rgba(123, 66, 246, 0.1) 100%)",
+      accent: "linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(1, 181, 116, 0.1) 100%)",
     },
-    // Special Vision UI gradients (basé sur la capture)
+    // Special Vision UI gradients
     visionPrimary: {
-      main: "linear-gradient(135deg, #151B3D 0%, #1E2A78 50%, #4D9AFF 100%)",       // Bleu principal
-      state: "linear-gradient(135deg, #0B0E27 0%, #151B3D 50%, #1E2A78 100%)",      // Plus sombre
+      main: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
+      state: "linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)",
     },
     visionNeon: {
-      main: "linear-gradient(135deg, #00D4FF 0%, #00E5CC 100%)",                    // Effet néon cyan
-      state: "linear-gradient(135deg, #00B8E6 0%, #00C4B3 100%)",                  // Néon plus sombre
+      main: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
+      state: "linear-gradient(135deg, #00B8E6 0%, #00A65A 100%)",
     },
   },
 
@@ -210,38 +210,38 @@ const visionColors = {
     },
   },
 
-  // Component-specific colors (basé sur la capture Vision UI)
+  // Component-specific colors
   components: {
     card: {
-      background: "rgba(21, 27, 61, 0.85)",               // Fond des cartes comme dans la capture
-      border: "rgba(184, 194, 219, 0.12)",               // Bordure subtile bleutée
-      hover: "rgba(21, 27, 61, 0.95)",                   // Hover plus opaque
+      background: "rgba(26, 32, 44, 0.8)",
+      border: "rgba(255, 255, 255, 0.1)",
+      hover: "rgba(26, 32, 44, 0.9)",
     },
     button: {
       primary: {
-        background: "linear-gradient(135deg, #00D4FF 0%, #4D9AFF 100%)",           // Cyan principal
-        hover: "linear-gradient(135deg, #00B8E6 0%, #0099CC 100%)",               // Hover plus sombre
-        shadow: "0 0 25px rgba(0, 212, 255, 0.5)",                               // Ombre cyan intense
-        hoverShadow: "0 0 35px rgba(0, 212, 255, 0.7)",                          // Ombre hover plus intense
+        background: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
+        hover: "linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)",
+        shadow: "0 0 20px rgba(92, 45, 213, 0.4)",
+        hoverShadow: "0 0 30px rgba(92, 45, 213, 0.6)",
       },
       secondary: {
-        background: "rgba(184, 194, 219, 0.1)",                                  // Fond subtil bleuté
-        hover: "rgba(184, 194, 219, 0.2)",                                       // Hover bleuté
-        border: "rgba(0, 212, 255, 0.3)",                                        // Bordure cyan
+        background: "rgba(255, 255, 255, 0.1)",
+        hover: "rgba(255, 255, 255, 0.2)",
+        border: "rgba(255, 255, 255, 0.2)",
       },
     },
     input: {
-      background: "rgba(11, 14, 39, 0.6)",               // Fond sombre bleuté
-      border: "rgba(184, 194, 219, 0.15)",               // Bordure bleutée
-      focus: "rgba(0, 212, 255, 0.4)",                   // Focus cyan intense
-      label: "#B8C2DB",                                  // Label bleu clair
-      text: "#FFFFFF",                                   // Texte blanc
+      background: "rgba(15, 20, 25, 0.5)",
+      border: "rgba(255, 255, 255, 0.1)",
+      focus: "rgba(0, 212, 255, 0.3)",
+      label: "#A0AEC0",
+      text: "#FFFFFF",
     },
     table: {
-      header: "rgba(11, 14, 39, 0.8)",                   // En-tête sombre
-      row: "rgba(21, 27, 61, 0.4)",                      // Lignes translucides
-      rowHover: "rgba(21, 27, 61, 0.7)",                 // Hover lignes
-      border: "rgba(184, 194, 219, 0.1)",                // Bordures subtiles
+      header: "rgba(15, 20, 25, 0.8)",
+      row: "rgba(26, 32, 44, 0.4)",
+      rowHover: "rgba(26, 32, 44, 0.6)",
+      border: "rgba(255, 255, 255, 0.1)",
     },
   },
 
