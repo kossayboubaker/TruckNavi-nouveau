@@ -94,8 +94,16 @@ export default function App() {
   useEffect(() => {
       console.log("Début vérification de l'utilisateur");
 
-    fetch("http://localhost:8080/user/auto-login", { credentials: "include" })
+    // Check if backend is available with a timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    fetch("http://localhost:8080/user/auto-login", {
+      credentials: "include",
+      signal: controller.signal
+    })
       .then((res) => {
+        clearTimeout(timeoutId);
         if (res.ok) return res.json();
         throw new Error("Not authenticated");
       })
@@ -134,7 +142,9 @@ export default function App() {
 
         setLoadingRoutes(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        clearTimeout(timeoutId);
+        console.warn("Backend connection failed:", error.message);
         const path = window.location.pathname;
         const isPublic = ["/auth/reset-password", "/auth/register", "/auth/forgot-password"].some((p) => path.startsWith(p));
         setUser(null);
