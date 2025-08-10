@@ -27,31 +27,31 @@ const visionColors = {
     },
   },
 
-  // Brand Colors
+  // Brand Colors (basé sur la capture Vision UI)
   brand: {
     primary: {
       50: "#F0F4FF",
       100: "#E5EDFF",
-      200: "#C7D2FE", 
+      200: "#C7D2FE",
       300: "#A5B4FC",
       400: "#818CF8",
-      500: "#1E2A78", // Main brand color
-      600: "#1A237E",
-      700: "#1565C0",
-      800: "#0D1642",
-      900: "#0A1235",
+      500: "#1E2A78", // Bleu principal de la capture
+      600: "#151B3D", // Bleu très foncé pour les cartes
+      700: "#0B0E27", // Fond principal
+      800: "#070A1F",
+      900: "#040612",
     },
     secondary: {
-      50: "#F5F3FF",
-      100: "#EDE9FE",
-      200: "#DDD6FE",
-      300: "#C4B5FD",
-      400: "#A78BFA",
-      500: "#5C2DD5", // Main secondary color
-      600: "#7B42F6",
-      700: "#673AB7",
-      800: "#44337A",
-      900: "#321B63",
+      50: "#F0FDFF",
+      100: "#E0FBFF",
+      200: "#BAF5FF",
+      300: "#7CEDFF",
+      400: "#38E4FF",
+      500: "#00D4FF", // Cyan principal de la capture
+      600: "#00B8E6",
+      700: "#0099CC",
+      800: "#006B8F",
+      900: "#004A63",
     },
   },
 
