@@ -22,7 +22,7 @@ root.render(
     <AuthContextProvider>
       <MaterialUIControllerProvider>
         <SocketProvider>
-          <PremiumApp />
+          <TestApp />
         </SocketProvider>
       </MaterialUIControllerProvider>
     </AuthContextProvider>
