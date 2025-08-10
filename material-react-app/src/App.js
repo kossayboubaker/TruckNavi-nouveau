@@ -16,6 +16,7 @@ import "./services/mockApi"; // Import mock API service
 import "./assets/theme/visionUI.css"; // Import Vision UI styles
 import "./assets/theme/responsive.css"; // Import responsive styles
 import "./assets/theme/utilities.css"; // Import utility classes
+import "./assets/theme/visionUIOverrides.css"; // Import color overrides
 
 import VisionSidenav from "examples/Sidenav/VisionSidenav";
 import Configurator from "examples/Configurator";
