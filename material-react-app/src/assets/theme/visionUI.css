@@ -38,13 +38,14 @@
   --vision-border-accent: rgba(0, 212, 255, 0.25);
 }
 
-/* Global Body Styles */
+/* Global Body Styles (basé sur la capture Vision UI) */
 body {
   background: var(--vision-bg-primary) !important;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(30, 42, 120, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(92, 45, 213, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+  background-image:
+    radial-gradient(circle at 15% 85%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 85% 15%, rgba(77, 154, 255, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(30, 42, 120, 0.08) 0%, transparent 70%),
+    radial-gradient(circle at 25% 25%, rgba(0, 229, 204, 0.06) 0%, transparent 65%);
   background-attachment: fixed;
   overflow-x: hidden;
 }
