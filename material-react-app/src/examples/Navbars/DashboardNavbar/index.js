@@ -91,9 +91,15 @@ const changeLanguage = (lng) => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         const res = await fetch("http://localhost:8080/user/notifications", {
           credentials: "include",
+          signal: controller.signal
         });
+
+        clearTimeout(timeoutId);
         const data = await res.json();
         setNotifications(data);
       } catch (err) {
