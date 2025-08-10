@@ -26,21 +26,23 @@ import VisionButtonRoot from "components/MDButton/VisionButtonRoot";
 import { useMaterialUIController } from "context";
 
 const MDButton = forwardRef(
-  ({ color, variant, size, circular, iconOnly, children, ...rest }, ref) => {
+  ({ color, variant, size, circular, iconOnly, children, useVision = true, ...rest }, ref) => {
     const [controller] = useMaterialUIController();
     const { darkMode } = controller;
 
+    const ButtonComponent = useVision ? VisionButtonRoot : MDButtonRoot;
+
     return (
-      <MDButtonRoot
+      <ButtonComponent
         {...rest}
         ref={ref}
-        color="primary"
-        variant={variant === "gradient" ? "contained" : variant}
+        color={color}
+        variant={variant === "gradient" ? "gradient" : variant}
         size={size}
         ownerState={{ color, variant, size, circular, iconOnly, darkMode }}
       >
         {children}
-      </MDButtonRoot>
+      </ButtonComponent>
     );
   }
 );
