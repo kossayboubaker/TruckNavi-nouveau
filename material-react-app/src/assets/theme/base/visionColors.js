@@ -112,28 +112,28 @@ const visionColors = {
       state: "linear-gradient(135deg, #000000 0%, #0F1419 100%)",
     },
     accent: {
-      neon: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
-      neonAlt: "linear-gradient(135deg, #9F7AEA 0%, #FF69B4 100%)",
-      warm: "linear-gradient(135deg, #FFB547 0%, #FF8A80 100%)",
+      neon: "linear-gradient(135deg, #00D4FF 0%, #00E5CC 100%)",        // Cyan vers turquoise
+      neonAlt: "linear-gradient(135deg, #8B5CF6 0%, #00D4FF 100%)",     // Violet vers cyan
+      warm: "linear-gradient(135deg, #FF8A47 0%, #FFB547 100%)",        // Orange chaud
     },
     vision: {
-      primary: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
-      secondary: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
-      tertiary: "linear-gradient(135deg, #FFB547 0%, #9F7AEA 100%)",
+      primary: "linear-gradient(135deg, #0B0E27 0%, #151B3D 50%, #1E2A78 100%)",    // Bleu foncé tri-color
+      secondary: "linear-gradient(135deg, #00D4FF 0%, #4D9AFF 50%, #00E5CC 100%)",  // Cyan tri-color
+      tertiary: "linear-gradient(135deg, #8B5CF6 0%, #00D4FF 50%, #00E5CC 100%)",   // Violet vers turquoise
     },
     glass: {
-      primary: "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
-      secondary: "linear-gradient(135deg, rgba(92, 45, 213, 0.2) 0%, rgba(123, 66, 246, 0.1) 100%)",
-      accent: "linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(1, 181, 116, 0.1) 100%)",
+      primary: "linear-gradient(135deg, rgba(184, 194, 219, 0.15) 0%, rgba(184, 194, 219, 0.05) 100%)",
+      secondary: "linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(77, 154, 255, 0.1) 100%)",
+      accent: "linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 229, 204, 0.15) 100%)",
     },
-    // Special Vision UI gradients
+    // Special Vision UI gradients (basé sur la capture)
     visionPrimary: {
-      main: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
-      state: "linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)",
+      main: "linear-gradient(135deg, #151B3D 0%, #1E2A78 50%, #4D9AFF 100%)",       // Bleu principal
+      state: "linear-gradient(135deg, #0B0E27 0%, #151B3D 50%, #1E2A78 100%)",      // Plus sombre
     },
     visionNeon: {
-      main: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
-      state: "linear-gradient(135deg, #00B8E6 0%, #00A65A 100%)",
+      main: "linear-gradient(135deg, #00D4FF 0%, #00E5CC 100%)",                    // Effet néon cyan
+      state: "linear-gradient(135deg, #00B8E6 0%, #00C4B3 100%)",                  // Néon plus sombre
     },
   },
 
