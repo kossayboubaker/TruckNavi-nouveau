@@ -4,38 +4,38 @@
  */
 
 :root {
-  /* Core Colors */
-  --vision-bg-primary: #0F1419;
-  --vision-bg-secondary: #1A202C;
-  --vision-bg-tertiary: #2D3748;
-  --vision-bg-glass: rgba(26, 32, 44, 0.8);
-  
+  /* Core Colors (basé sur la capture Vision UI) */
+  --vision-bg-primary: #0B0E27;                    /* Bleu très foncé principal */
+  --vision-bg-secondary: #151B3D;                  /* Bleu foncé pour les cartes */
+  --vision-bg-tertiary: #1E2A78;                   /* Bleu moyen */
+  --vision-bg-glass: rgba(21, 27, 61, 0.85);       /* Effet verre bleuté */
+
   /* Text Colors */
   --vision-text-primary: #FFFFFF;
-  --vision-text-secondary: #A0AEC0;
-  --vision-text-tertiary: #718096;
+  --vision-text-secondary: #B8C2DB;                /* Bleu clair pour texte secondaire */
+  --vision-text-tertiary: #8B95B8;                 /* Bleu moyen pour texte tertiaire */
   --vision-text-disabled: #4A5568;
-  
+
   /* Brand Colors */
-  --vision-brand-primary: #1E2A78;
-  --vision-brand-secondary: #5C2DD5;
-  --vision-accent-cyan: #00D4FF;
-  --vision-accent-green: #01B574;
-  
-  /* Gradients */
-  --vision-gradient-primary: linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%);
-  --vision-gradient-secondary: linear-gradient(135deg, #00D4FF 0%, #01B574 100%);
-  --vision-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  
-  /* Shadows */
-  --vision-shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  --vision-shadow-glow-primary: 0 0 30px rgba(92, 45, 213, 0.4);
-  --vision-shadow-glow-accent: 0 0 30px rgba(0, 212, 255, 0.4);
-  
+  --vision-brand-primary: #151B3D;                 /* Bleu principal des cartes */
+  --vision-brand-secondary: #00D4FF;               /* Cyan principal */
+  --vision-accent-cyan: #00D4FF;                   /* Cyan néon */
+  --vision-accent-teal: #00E5CC;                   /* Turquoise pour accents */
+
+  /* Gradients (basé sur la capture) */
+  --vision-gradient-primary: linear-gradient(135deg, #151B3D 0%, #1E2A78 50%, #4D9AFF 100%);
+  --vision-gradient-secondary: linear-gradient(135deg, #00D4FF 0%, #00E5CC 100%);
+  --vision-gradient-glass: linear-gradient(135deg, rgba(184, 194, 219, 0.15) 0%, rgba(184, 194, 219, 0.05) 100%);
+
+  /* Shadows (plus intenses pour correspondre à la capture) */
+  --vision-shadow-glass: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(184, 194, 219, 0.15);
+  --vision-shadow-glow-primary: 0 0 35px rgba(0, 212, 255, 0.6);
+  --vision-shadow-glow-accent: 0 0 40px rgba(0, 212, 255, 0.7);
+
   /* Borders */
-  --vision-border-primary: rgba(255, 255, 255, 0.1);
-  --vision-border-secondary: rgba(255, 255, 255, 0.05);
-  --vision-border-accent: rgba(255, 255, 255, 0.2);
+  --vision-border-primary: rgba(184, 194, 219, 0.12);
+  --vision-border-secondary: rgba(184, 194, 219, 0.06);
+  --vision-border-accent: rgba(0, 212, 255, 0.25);
 }
 
 /* Global Body Styles */
