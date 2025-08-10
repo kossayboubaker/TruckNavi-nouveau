@@ -325,11 +325,9 @@ function Dashboard() {
                     color: '#ffffff',
                     fontWeight: 800,
                     mb: 2,
-                    background: 'linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #00d4ff 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
                     fontSize: { xs: '2rem', md: '2.5rem' },
+                    textShadow: '0 4px 16px rgba(0,0,0,0.6)',
+                    letterSpacing: '-0.02em',
                   }}
                 >
                   Transport Management Hub
@@ -337,10 +335,11 @@ function Dashboard() {
                 <Typography
                   variant="h6"
                   sx={{
-                    color: 'rgba(255, 255, 255, 0.8)',
+                    color: 'rgba(255, 255, 255, 0.9)',
                     fontWeight: 400,
                     mb: 3,
                     lineHeight: 1.6,
+                    textShadow: '0 2px 8px rgba(0,0,0,0.4)',
                   }}
                 >
                   Advanced analytics and real-time monitoring for your fleet operations
