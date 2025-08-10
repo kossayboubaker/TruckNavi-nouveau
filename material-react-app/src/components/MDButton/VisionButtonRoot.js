@@ -19,37 +19,37 @@ export default styled(Button)(({ theme, ownerState }) => {
     const colorMappings = {
       primary: {
         main: visionColors.gradients.primary.main,
-        hover: visionColors.gradients.primary.dark,
+        hover: "linear-gradient(135deg, #1A237E 0%, #303F9F 100%)",
         glow: visionColors.shadows.glow.primary,
         text: "#FFFFFF",
       },
       secondary: {
         main: visionColors.gradients.secondary.main,
-        hover: visionColors.gradients.secondary.dark,
+        hover: "linear-gradient(135deg, #44337A 0%, #673AB7 100%)",
         glow: visionColors.shadows.glow.secondary,
         text: "#FFFFFF",
       },
       info: {
         main: visionColors.gradients.accent.neon,
-        hover: visionColors.gradients.info.state,
+        hover: visionColors.gradients.info.main,
         glow: visionColors.shadows.glow.accent,
         text: "#FFFFFF",
       },
       success: {
         main: visionColors.gradients.success.main,
-        hover: visionColors.gradients.success.state,
+        hover: "linear-gradient(135deg, #00A65A 0%, #2E7D32 100%)",
         glow: visionColors.shadows.glow.success,
         text: "#FFFFFF",
       },
       warning: {
         main: visionColors.gradients.warning.main,
-        hover: visionColors.gradients.warning.state,
+        hover: "linear-gradient(135deg, #FF9F1A 0%, #F57C00 100%)",
         glow: visionColors.shadows.glow.warning,
         text: "#000000",
       },
       error: {
         main: visionColors.gradients.error.main,
-        hover: visionColors.gradients.error.state,
+        hover: "linear-gradient(135deg, #D50000 0%, #C62828 100%)",
         glow: visionColors.shadows.glow.error,
         text: "#FFFFFF",
       },
@@ -61,7 +61,7 @@ export default styled(Button)(({ theme, ownerState }) => {
       },
       dark: {
         main: visionColors.gradients.light.main,
-        hover: visionColors.gradients.light.state,
+        hover: "linear-gradient(135deg, #1A202C 0%, #2D3748 100%)",
         glow: visionColors.shadows.glow.primary,
         text: "#FFFFFF",
       },
