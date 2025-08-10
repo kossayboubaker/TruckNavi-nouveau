@@ -15,12 +15,13 @@ Coded by www.creative-tim.com
 
 // @mui material components
 import Grid from "@mui/material/Grid";
+import { Box, Typography } from "@mui/material";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import VisionDashboardLayout from "examples/LayoutContainers/VisionDashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
@@ -39,13 +40,105 @@ function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
 
   return (
-    <DashboardLayout>
+    <VisionDashboardLayout>
       <DashboardNavbar />
+      
+      {/* Welcome Section */}
+      <MDBox mb={4}>
+        <Box 
+          className="vision-glass"
+          sx={{ 
+            p: 4, 
+            borderRadius: "24px",
+            background: "linear-gradient(135deg, rgba(21, 27, 61, 0.6) 0%, rgba(30, 42, 120, 0.3) 100%)",
+            position: "relative",
+            overflow: "hidden",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "4px",
+              background: "linear-gradient(90deg, #00D4FF, #4D9AFF, #00E5CC, #8B5CF6)",
+            }
+          }}
+        >
+          <Typography 
+            variant="h3" 
+            sx={{ 
+              color: "white", 
+              fontWeight: 700, 
+              mb: 1,
+              background: "linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Fleet Management Dashboard
+          </Typography>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              color: "#A0AEC0", 
+              fontWeight: 400,
+              mb: 3
+            }}
+          >
+            Monitor and optimize your delivery operations in real-time
+          </Typography>
+          
+          {/* Quick Stats */}
+          <Grid container spacing={3}>
+            <Grid item xs={6} md={3}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="h4" sx={{ color: "#00E5CC", fontWeight: 700 }}>
+                  98.5%
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
+                  On-Time Delivery
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="h4" sx={{ color: "#00D4FF", fontWeight: 700 }}>
+                  24/7
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
+                  Live Tracking
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="h4" sx={{ color: "#4D9AFF", fontWeight: 700 }}>
+                  15.2K
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
+                  Deliveries/Month
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="h4" sx={{ color: "#8B5CF6", fontWeight: 700 }}>
+                  €2.8M
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#B8C2DB" }}>
+                  Monthly Revenue
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </MDBox>
+
       <MDBox
-        py={3}
         sx={{
           background: 'transparent',
-          minHeight: 'calc(100vh - 120px)',
+          minHeight: 'calc(100vh - 220px)',
         }}
       >
         {/* Statistics Cards Section */}
@@ -110,16 +203,7 @@ function Dashboard() {
         <MDBox mb={4}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox
-                sx={{
-                  '& .MuiCard-root': {
-                    background: 'rgba(26, 32, 44, 0.8)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '20px',
-                  },
-                }}
-              >
+              <MDBox className="vision-card">
                 <ReportsBarChart
                   color="info"
                   title="Fleet Performance"
@@ -130,16 +214,7 @@ function Dashboard() {
               </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox
-                sx={{
-                  '& .MuiCard-root': {
-                    background: 'rgba(26, 32, 44, 0.8)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '20px',
-                  },
-                }}
-              >
+              <MDBox className="vision-card">
                 <ReportsLineChart
                   color="success"
                   title="Daily Revenue"
@@ -154,16 +229,7 @@ function Dashboard() {
               </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox
-                sx={{
-                  '& .MuiCard-root': {
-                    background: 'rgba(26, 32, 44, 0.8)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '20px',
-                  },
-                }}
-              >
+              <MDBox className="vision-card">
                 <ReportsLineChart
                   color="dark"
                   title="Delivery Status"
@@ -180,30 +246,12 @@ function Dashboard() {
         <MDBox>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={8}>
-              <MDBox
-                sx={{
-                  '& .MuiCard-root': {
-                    background: 'rgba(26, 32, 44, 0.8)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '20px',
-                  },
-                }}
-              >
+              <MDBox className="vision-card">
                 <Projects />
               </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <MDBox
-                sx={{
-                  '& .MuiCard-root': {
-                    background: 'rgba(26, 32, 44, 0.8)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '20px',
-                  },
-                }}
-              >
+              <MDBox className="vision-card">
                 <OrdersOverview />
               </MDBox>
             </Grid>
@@ -211,7 +259,7 @@ function Dashboard() {
         </MDBox>
       </MDBox>
       <Footer />
-    </DashboardLayout>
+    </VisionDashboardLayout>
   );
 }
 

@@ -12,8 +12,13 @@ import createCache from "@emotion/cache";
 import { superAdminRoutes, managerRoutes, driverRoutes } from "routes";
 import { useMaterialUIController, setMiniSidenav } from "context";
 import { setupAxiosInterceptors } from "./services/interceptor";
+import "./services/mockApi"; // Import mock API service
+import "./assets/theme/visionUI.css"; // Import Vision UI styles
+import "./assets/theme/responsive.css"; // Import responsive styles
+import "./assets/theme/utilities.css"; // Import utility classes
+import "./assets/theme/visionUIOverrides.css"; // Import color overrides
 
-import Sidenav from "examples/Sidenav";
+import VisionSidenav from "examples/Sidenav/VisionSidenav";
 import Configurator from "examples/Configurator";
 import ProtectedRoute from "examples/ProtectedRoute";
 
@@ -94,8 +99,16 @@ export default function App() {
   useEffect(() => {
       console.log("Début vérification de l'utilisateur");
 
-    fetch("http://localhost:8080/user/auto-login", { credentials: "include" })
+    // Check if backend is available with a timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    fetch("http://localhost:8080/user/auto-login", {
+      credentials: "include",
+      signal: controller.signal
+    })
       .then((res) => {
+        clearTimeout(timeoutId);
         if (res.ok) return res.json();
         throw new Error("Not authenticated");
       })
@@ -126,7 +139,7 @@ export default function App() {
             alertsShownRef.current.profile = true;
           }
           if (mustChangePassword && !alertsShownRef.current.password) {
-            toast.warn("Veuillez mettre à jour votre mot de passe pour accéder au tableau de bord.");
+            toast.warn("Veuillez mettre à jour votre mot de passe pour acc��der au tableau de bord.");
             alertsShownRef.current.password = true;
           }
           if (mustChangePassword || profileIncomplete) navigate("/update-profile");
@@ -134,7 +147,9 @@ export default function App() {
 
         setLoadingRoutes(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        clearTimeout(timeoutId);
+        console.warn("Backend connection failed:", error.message);
         const path = window.location.pathname;
         const isPublic = ["/auth/reset-password", "/auth/register", "/auth/forgot-password"].some((p) => path.startsWith(p));
         setUser(null);
@@ -206,14 +221,14 @@ const AppContent = (
   <>
     {!isMapRoute && !isPublicPath && layout === "dashboard" && !loadingRoutes && <DashboardNavbar />}
     {!isMapRoute && !isPublicPath && layout === "dashboard" && !loadingRoutes && (
-      <Sidenav
+      <VisionSidenav
         color={sidenavColor}
         brand={
           companyInfo?.image_campany
             ? `http://localhost:8080/uploads/${companyInfo.image_campany}`
             : null
         }
-        brandName={companyInfo?.company_name || ""}
+        brandName={companyInfo?.company_name || "Fleet Manager"}
         routes={userRoutes}
         onMouseEnter={() => setMiniSidenav(dispatch, false)}
         onMouseLeave={() => setMiniSidenav(dispatch, true)}

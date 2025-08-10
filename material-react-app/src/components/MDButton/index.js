@@ -20,26 +20,29 @@ import PropTypes from "prop-types";
 
 // Custom styles for MDButton
 import MDButtonRoot from "components/MDButton/MDButtonRoot";
+import VisionButtonRoot from "components/MDButton/VisionButtonRoot";
 
 // Material Dashboard 2 React contexts
 import { useMaterialUIController } from "context";
 
 const MDButton = forwardRef(
-  ({ color, variant, size, circular, iconOnly, children, ...rest }, ref) => {
+  ({ color, variant, size, circular, iconOnly, children, useVision = true, ...rest }, ref) => {
     const [controller] = useMaterialUIController();
     const { darkMode } = controller;
 
+    const ButtonComponent = useVision ? VisionButtonRoot : MDButtonRoot;
+
     return (
-      <MDButtonRoot
+      <ButtonComponent
         {...rest}
         ref={ref}
-        color="primary"
-        variant={variant === "gradient" ? "contained" : variant}
+        color={color}
+        variant={variant === "gradient" ? "gradient" : variant}
         size={size}
         ownerState={{ color, variant, size, circular, iconOnly, darkMode }}
       >
         {children}
-      </MDButtonRoot>
+      </ButtonComponent>
     );
   }
 );
@@ -48,9 +51,10 @@ const MDButton = forwardRef(
 MDButton.defaultProps = {
   size: "medium",
   variant: "contained",
-  color: "white",
+  color: "primary",
   circular: false,
   iconOnly: false,
+  useVision: true,
 };
 
 // Typechecking props for the MDButton
@@ -70,6 +74,7 @@ MDButton.propTypes = {
   ]),
   circular: PropTypes.bool,
   iconOnly: PropTypes.bool,
+  useVision: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

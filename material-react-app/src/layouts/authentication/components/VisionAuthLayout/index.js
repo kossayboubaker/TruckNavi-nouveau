@@ -93,14 +93,18 @@ function VisionAuthLayout({ children }) {
       {/* Content Container */}
       <Container
         maxWidth="lg"
+        className="vision-no-scroll-x"
         sx={{
           minHeight: '100vh',
+          maxHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          py: 4,
+          py: { xs: 2, sm: 3, md: 4 },
+          px: { xs: 2, sm: 3 },
           position: 'relative',
           zIndex: 1,
+          overflow: 'hidden',
         }}
       >
         <Grid container spacing={4} alignItems="center" justifyContent="center">
@@ -237,13 +241,14 @@ function VisionAuthLayout({ children }) {
               }}
             >
               {/* Mobile Title */}
-              <Box sx={{ display: { xs: 'block', lg: 'none' }, textAlign: 'center', mb: 4 }}>
+              <Box sx={{ display: { xs: 'block', lg: 'none' }, textAlign: 'center', mb: { xs: 2, sm: 3 } }}>
                 <Typography
-                  variant="h3"
+                  variant="h4"
                   sx={{
                     color: 'white',
                     fontWeight: 700,
-                    mb: 2,
+                    mb: 1,
+                    fontSize: { xs: '1.75rem', sm: '2.125rem' },
                     background: 'linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
@@ -256,7 +261,8 @@ function VisionAuthLayout({ children }) {
                   variant="body1"
                   sx={{
                     color: '#A0AEC0',
-                    mb: 3,
+                    fontSize: { xs: '0.875rem', sm: '1rem' },
+                    mb: 1,
                   }}
                 >
                   {getPageDescription()}
@@ -265,17 +271,21 @@ function VisionAuthLayout({ children }) {
 
               {/* Auth Card */}
               <Box
+                className="vision-card"
                 sx={{
                   width: '100%',
-                  maxWidth: '440px',
+                  maxWidth: { xs: '100%', sm: '440px' },
                   background: 'rgba(26, 32, 44, 0.8)',
                   backdropFilter: 'blur(20px)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '24px',
-                  p: { xs: 3, md: 4 },
+                  borderRadius: { xs: '16px', sm: '24px' },
+                  p: { xs: 2, sm: 3, md: 4 },
+                  mx: { xs: 1, sm: 0 },
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                   position: 'relative',
                   overflow: 'hidden',
+                  maxHeight: { xs: 'calc(100vh - 120px)', sm: 'none' },
+                  overflowY: { xs: 'auto', sm: 'visible' },
                   '&::before': {
                     content: '""',
                     position: 'absolute',
