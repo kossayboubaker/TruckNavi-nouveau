@@ -15,7 +15,7 @@ import { setupAxiosInterceptors } from "./services/interceptor";
 import "./services/mockApi"; // Import mock API service
 import "./assets/theme/visionUI.css"; // Import Vision UI styles
 
-import Sidenav from "examples/Sidenav";
+import VisionSidenav from "examples/Sidenav/VisionSidenav";
 import Configurator from "examples/Configurator";
 import ProtectedRoute from "examples/ProtectedRoute";
 
@@ -136,7 +136,7 @@ export default function App() {
             alertsShownRef.current.profile = true;
           }
           if (mustChangePassword && !alertsShownRef.current.password) {
-            toast.warn("Veuillez mettre à jour votre mot de passe pour accéder au tableau de bord.");
+            toast.warn("Veuillez mettre à jour votre mot de passe pour acc��der au tableau de bord.");
             alertsShownRef.current.password = true;
           }
           if (mustChangePassword || profileIncomplete) navigate("/update-profile");
