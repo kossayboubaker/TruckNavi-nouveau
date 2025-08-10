@@ -12,6 +12,7 @@ import createCache from "@emotion/cache";
 import { superAdminRoutes, managerRoutes, driverRoutes } from "routes";
 import { useMaterialUIController, setMiniSidenav } from "context";
 import { setupAxiosInterceptors } from "./services/interceptor";
+import "./services/mockApi"; // Import mock API service
 
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
