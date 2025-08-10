@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
 
 // Custom styles for MDButton
 import MDButtonRoot from "components/MDButton/MDButtonRoot";
+import VisionButtonRoot from "components/MDButton/VisionButtonRoot";
 
 // Material Dashboard 2 React contexts
 import { useMaterialUIController } from "context";
