@@ -102,13 +102,13 @@ body {
   border: 1px solid rgba(92, 45, 213, 0.3) !important;
 }
 
-/* Button Styles */
+/* Button Styles (basé sur la capture Vision UI) */
 .vision-button-primary {
-  background: var(--vision-gradient-primary) !important;
+  background: linear-gradient(135deg, #00D4FF 0%, #4D9AFF 100%) !important;
   border: none !important;
   border-radius: 12px !important;
-  box-shadow: var(--vision-shadow-glow-primary) !important;
-  color: white !important;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.5) !important;
+  color: #0B0E27 !important;                                    /* Texte sombre sur fond cyan */
   font-weight: 600 !important;
   text-transform: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -117,8 +117,8 @@ body {
 }
 
 .vision-button-primary:hover {
-  background: linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%) !important;
-  box-shadow: 0 0 40px rgba(92, 45, 213, 0.6) !important;
+  background: linear-gradient(135deg, #00B8E6 0%, #0099CC 100%) !important;
+  box-shadow: 0 0 35px rgba(0, 212, 255, 0.7) !important;
   transform: translateY(-2px) !important;
 }
 
