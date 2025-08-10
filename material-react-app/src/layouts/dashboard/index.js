@@ -11,6 +11,9 @@ import Grid from "@mui/material/Grid";
 import { Box, Typography, Card, Avatar, LinearProgress, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 
+// Import custom CSS for dashboard styling
+import "./dashboard.css";
+
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 
