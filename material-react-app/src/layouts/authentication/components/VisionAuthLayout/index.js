@@ -271,17 +271,21 @@ function VisionAuthLayout({ children }) {
 
               {/* Auth Card */}
               <Box
+                className="vision-card"
                 sx={{
                   width: '100%',
-                  maxWidth: '440px',
+                  maxWidth: { xs: '100%', sm: '440px' },
                   background: 'rgba(26, 32, 44, 0.8)',
                   backdropFilter: 'blur(20px)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '24px',
-                  p: { xs: 3, md: 4 },
+                  borderRadius: { xs: '16px', sm: '24px' },
+                  p: { xs: 2, sm: 3, md: 4 },
+                  mx: { xs: 1, sm: 0 },
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                   position: 'relative',
                   overflow: 'hidden',
+                  maxHeight: { xs: 'calc(100vh - 120px)', sm: 'none' },
+                  overflowY: { xs: 'auto', sm: 'visible' },
                   '&::before': {
                     content: '""',
                     position: 'absolute',
