@@ -1,0 +1,223 @@
+/**
+ * Vision UI Advanced Color System
+ * Enhanced color palette for modern glassmorphism design
+ */
+
+const visionColors = {
+  // Core Vision UI Colors
+  core: {
+    background: {
+      primary: "#0F1419",
+      secondary: "#1A202C", 
+      tertiary: "#2D3748",
+      glass: "rgba(26, 32, 44, 0.8)",
+      overlay: "rgba(15, 20, 25, 0.9)",
+    },
+    text: {
+      primary: "#FFFFFF",
+      secondary: "#A0AEC0",
+      tertiary: "#718096",
+      disabled: "#4A5568",
+      accent: "#E2E8F0",
+    },
+    border: {
+      primary: "rgba(255, 255, 255, 0.1)",
+      secondary: "rgba(255, 255, 255, 0.05)",
+      accent: "rgba(255, 255, 255, 0.2)",
+    },
+  },
+
+  // Brand Colors
+  brand: {
+    primary: {
+      50: "#F0F4FF",
+      100: "#E5EDFF",
+      200: "#C7D2FE", 
+      300: "#A5B4FC",
+      400: "#818CF8",
+      500: "#1E2A78", // Main brand color
+      600: "#1A237E",
+      700: "#1565C0",
+      800: "#0D1642",
+      900: "#0A1235",
+    },
+    secondary: {
+      50: "#F5F3FF",
+      100: "#EDE9FE",
+      200: "#DDD6FE",
+      300: "#C4B5FD",
+      400: "#A78BFA",
+      500: "#5C2DD5", // Main secondary color
+      600: "#7B42F6",
+      700: "#673AB7",
+      800: "#44337A",
+      900: "#321B63",
+    },
+  },
+
+  // Accent Colors
+  accent: {
+    neon: {
+      cyan: "#00D4FF",
+      green: "#01B574", 
+      purple: "#9F7AEA",
+      pink: "#FF69B4",
+      orange: "#FFB547",
+    },
+    glow: {
+      cyan: "rgba(0, 212, 255, 0.4)",
+      green: "rgba(1, 181, 116, 0.4)",
+      purple: "rgba(159, 122, 234, 0.4)",
+      pink: "rgba(255, 105, 180, 0.4)",
+      orange: "rgba(255, 181, 71, 0.4)",
+    },
+  },
+
+  // Gradient System
+  gradients: {
+    primary: {
+      main: "linear-gradient(135deg, #1E2A78 0%, #3F51B5 100%)",
+      light: "linear-gradient(135deg, #3F51B5 0%, #5C6BC0 100%)",
+      dark: "linear-gradient(135deg, #0D1642 0%, #1A237E 100%)",
+    },
+    secondary: {
+      main: "linear-gradient(135deg, #5C2DD5 0%, #7B42F6 100%)",
+      light: "linear-gradient(135deg, #7B42F6 0%, #9F7AEA 100%)",
+      dark: "linear-gradient(135deg, #44337A 0%, #5C2DD5 100%)",
+    },
+    accent: {
+      neon: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
+      neonAlt: "linear-gradient(135deg, #9F7AEA 0%, #FF69B4 100%)",
+      warm: "linear-gradient(135deg, #FFB547 0%, #FF8A80 100%)",
+    },
+    vision: {
+      primary: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
+      secondary: "linear-gradient(135deg, #00D4FF 0%, #01B574 100%)",
+      tertiary: "linear-gradient(135deg, #FFB547 0%, #9F7AEA 100%)",
+    },
+    glass: {
+      primary: "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+      secondary: "linear-gradient(135deg, rgba(92, 45, 213, 0.2) 0%, rgba(123, 66, 246, 0.1) 100%)",
+      accent: "linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(1, 181, 116, 0.1) 100%)",
+    },
+  },
+
+  // Status Colors
+  status: {
+    success: {
+      main: "#01B574",
+      light: "#34C88A",
+      dark: "#016B41",
+      glow: "rgba(1, 181, 116, 0.4)",
+    },
+    warning: {
+      main: "#FFB547",
+      light: "#FFC56B",
+      dark: "#E6A041",
+      glow: "rgba(255, 181, 71, 0.4)",
+    },
+    error: {
+      main: "#E31A1A",
+      light: "#EF5350",
+      dark: "#B71C1C",
+      glow: "rgba(227, 26, 26, 0.4)",
+    },
+    info: {
+      main: "#00D4FF",
+      light: "#4DDDFF",
+      dark: "#0099CC",
+      glow: "rgba(0, 212, 255, 0.4)",
+    },
+  },
+
+  // Semantic Colors
+  semantic: {
+    truck: {
+      active: "#01B574",
+      inactive: "#718096",
+      maintenance: "#FFB547",
+      offline: "#E31A1A",
+    },
+    delivery: {
+      pending: "#FFB547",
+      inProgress: "#00D4FF",
+      completed: "#01B574",
+      failed: "#E31A1A",
+    },
+    driver: {
+      available: "#01B574",
+      busy: "#FFB547",
+      offline: "#718096",
+    },
+  },
+
+  // Shadow System
+  shadows: {
+    glass: {
+      small: "0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+      medium: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+      large: "0 16px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+    },
+    glow: {
+      primary: "0 0 30px rgba(30, 42, 120, 0.4)",
+      secondary: "0 0 30px rgba(92, 45, 213, 0.4)",
+      accent: "0 0 30px rgba(0, 212, 255, 0.4)",
+      success: "0 0 30px rgba(1, 181, 116, 0.4)",
+      warning: "0 0 30px rgba(255, 181, 71, 0.4)",
+      error: "0 0 30px rgba(227, 26, 26, 0.4)",
+    },
+    elevation: {
+      1: "0 2px 8px rgba(0, 0, 0, 0.15)",
+      2: "0 4px 16px rgba(0, 0, 0, 0.15)",
+      3: "0 8px 24px rgba(0, 0, 0, 0.15)",
+      4: "0 16px 32px rgba(0, 0, 0, 0.15)",
+      5: "0 24px 48px rgba(0, 0, 0, 0.15)",
+    },
+  },
+
+  // Component-specific colors
+  components: {
+    card: {
+      background: "rgba(26, 32, 44, 0.8)",
+      border: "rgba(255, 255, 255, 0.1)",
+      hover: "rgba(26, 32, 44, 0.9)",
+    },
+    button: {
+      primary: {
+        background: "linear-gradient(135deg, #1E2A78 0%, #5C2DD5 50%, #7B42F6 100%)",
+        hover: "linear-gradient(135deg, #1A237E 0%, #44337A 50%, #673AB7 100%)",
+        shadow: "0 0 20px rgba(92, 45, 213, 0.4)",
+        hoverShadow: "0 0 30px rgba(92, 45, 213, 0.6)",
+      },
+      secondary: {
+        background: "rgba(255, 255, 255, 0.1)",
+        hover: "rgba(255, 255, 255, 0.2)",
+        border: "rgba(255, 255, 255, 0.2)",
+      },
+    },
+    input: {
+      background: "rgba(15, 20, 25, 0.5)",
+      border: "rgba(255, 255, 255, 0.1)",
+      focus: "rgba(0, 212, 255, 0.3)",
+      label: "#A0AEC0",
+      text: "#FFFFFF",
+    },
+    table: {
+      header: "rgba(15, 20, 25, 0.8)",
+      row: "rgba(26, 32, 44, 0.4)",
+      rowHover: "rgba(26, 32, 44, 0.6)",
+      border: "rgba(255, 255, 255, 0.1)",
+    },
+  },
+
+  // Animation colors
+  animation: {
+    pulse: {
+      primary: "rgba(30, 42, 120, 0.6)",
+      secondary: "rgba(92, 45, 213, 0.6)",
+      accent: "rgba(0, 212, 255, 0.6)",
+    },
+  },
+};
+
+export default visionColors;
