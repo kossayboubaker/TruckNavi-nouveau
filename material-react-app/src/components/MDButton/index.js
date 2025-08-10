@@ -74,6 +74,7 @@ MDButton.propTypes = {
   ]),
   circular: PropTypes.bool,
   iconOnly: PropTypes.bool,
+  useVision: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
