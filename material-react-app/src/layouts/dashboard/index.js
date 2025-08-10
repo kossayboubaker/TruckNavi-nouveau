@@ -44,19 +44,21 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient, shadowColor }) => (
   <Card
     sx={{
-      background: `linear-gradient(135deg, ${gradient})`,
+      background: `linear-gradient(135deg, ${gradient}), rgba(26, 26, 46, 0.8)`,
+      backgroundBlendMode: 'overlay',
       backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.15)',
-      borderRadius: '20px',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      borderRadius: '16px',
       p: 3,
       height: '160px',
       position: 'relative',
       overflow: 'hidden',
-      transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      transition: 'all 0.3s ease',
       cursor: 'pointer',
+      boxShadow: `0 8px 32px ${shadowColor || 'rgba(0, 0, 0, 0.3)'}`,
       '&:hover': {
-        transform: 'translateY(-8px) scale(1.02)',
-        boxShadow: `0 25px 50px ${shadowColor}`,
+        transform: 'translateY(-6px)',
+        boxShadow: `0 16px 40px ${shadowColor || 'rgba(0, 0, 0, 0.4)'}`,
         border: '1px solid rgba(255, 255, 255, 0.3)',
       },
       '&::before': {
@@ -66,7 +68,7 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'rgba(255, 255, 255, 0.05)',
+        background: 'rgba(255, 255, 255, 0.02)',
         backdropFilter: 'blur(10px)',
         zIndex: 0,
       },
@@ -77,7 +79,7 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
         right: 0,
         width: '100%',
         height: '2px',
-        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)',
+        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)',
       }
     }}
   >
@@ -117,19 +119,21 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
           fontWeight: 800,
           mb: 1,
           fontSize: '2.2rem',
-          textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+          textShadow: '0 4px 12px rgba(0,0,0,0.6)',
+          letterSpacing: '-0.02em',
         }}
       >
         {value}
       </Typography>
-      
+
       <Typography
         variant="h6"
         sx={{
-          color: 'rgba(255, 255, 255, 0.9)',
+          color: 'rgba(255, 255, 255, 0.95)',
           fontWeight: 600,
           mb: 1,
           fontSize: '1rem',
+          textShadow: '0 2px 8px rgba(0,0,0,0.4)',
         }}
       >
         {title}
@@ -157,18 +161,21 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
 const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) => (
   <Card
     sx={{
-      background: 'rgba(15, 20, 30, 0.8)',
-      backdropFilter: 'blur(25px)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '24px',
+      background: 'rgba(26, 26, 46, 0.95)',
+      backdropFilter: 'blur(20px)',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      borderRadius: '20px',
       p: 3,
       height: '420px',
       position: 'relative',
       overflow: 'hidden',
       transition: 'all 0.3s ease',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
       '&:hover': {
-        border: '1px solid rgba(139, 92, 246, 0.3)',
-        background: 'rgba(15, 20, 30, 0.9)',
+        border: '1px solid rgba(139, 92, 246, 0.4)',
+        background: 'rgba(26, 26, 46, 1)',
+        transform: 'translateY(-4px)',
+        boxShadow: '0 12px 40px rgba(0, 0, 0, 0.5)',
       },
       '&::before': {
         content: '""',
@@ -177,7 +184,7 @@ const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) =
         left: 0,
         right: 0,
         height: '3px',
-        background: gradient,
+        background: gradient || 'linear-gradient(90deg, #8b5cf6, #3b82f6)',
       }
     }}
   >
@@ -200,6 +207,7 @@ const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) =
             color: '#ffffff',
             fontWeight: 700,
             mb: 0.5,
+            textShadow: '0 2px 8px rgba(0,0,0,0.4)',
           }}
         >
           {title}
@@ -207,7 +215,9 @@ const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) =
         <Typography
           variant="body2"
           sx={{
-            color: 'rgba(255, 255, 255, 0.7)',
+            color: 'rgba(255, 255, 255, 0.8)',
+            fontSize: '0.9rem',
+            textShadow: '0 1px 4px rgba(0,0,0,0.3)',
           }}
         >
           {subtitle}
@@ -236,103 +246,67 @@ function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
 
   return (
-    <>
-      {/* Premium Background inspired by the screenshots */}
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(135deg, #1a0d2e 0%, #0f0f23 25%, #16213e 50%, #0a0e27 75%, #1a0d2e 100%)',
-          zIndex: -10,
-        }}
-      />
+    <VisionDashboardLayout
+      sx={{
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #1a1a2e 75%, #16213e 100%)',
+        minHeight: '100vh',
+        height: '100vh',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+        <DashboardNavbar />
 
-      {/* Floating gradient orbs */}
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflow: 'hidden',
-          pointerEvents: 'none',
-          zIndex: -5,
-        }}
-      >
-        {/* Purple orb */}
+        {/* Background avec gradient violet/bleu comme la capture */}
         <Box
           sx={{
             position: 'absolute',
-            top: '10%',
-            right: '-300px',
-            width: '600px',
-            height: '600px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)',
-            animation: 'float 20s ease-in-out infinite',
-            '@keyframes float': {
-              '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
-              '33%': { transform: 'translate(30px, -30px) rotate(120deg)' },
-              '66%': { transform: 'translate(-20px, 20px) rotate(240deg)' },
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #1a1a2e 75%, #16213e 100%)',
+            zIndex: -1,
+          }}
+        />
+        
+        {/* Contenu du dashboard avec scroll interne */}
+        <MDBox
+          sx={{
+            height: 'calc(100vh - 120px)',
+            overflowY: 'auto',
+            paddingRight: '8px',
+            '&::-webkit-scrollbar': {
+              width: '4px',
+            },
+            '&::-webkit-scrollbar-track': {
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '2px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+              borderRadius: '2px',
             },
           }}
-        />
-        
-        {/* Cyan orb */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: '10%',
-            left: '-300px',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 70%)',
-            animation: 'float 25s ease-in-out infinite reverse',
-          }}
-        />
-        
-        {/* Pink orb */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)',
-            animation: 'float 30s ease-in-out infinite',
-          }}
-        />
-      </Box>
-
-      <VisionDashboardLayout>
-        <DashboardNavbar />
-        
-        {/* Hero Section inspired by the screenshots */}
+        >
         <MDBox mb={3}>
           <Card
             sx={{
-              background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 50%, rgba(0, 212, 255, 0.1) 100%)',
-              backdropFilter: 'blur(30px)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              borderRadius: '28px',
+              background: 'rgba(26, 26, 46, 0.8)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
               p: 4,
               position: 'relative',
               overflow: 'hidden',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
               '&::before': {
                 content: '""',
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
-                height: '4px',
+                height: '3px',
                 background: 'linear-gradient(90deg, #8b5cf6, #ec4899, #00d4ff, #8b5cf6)',
                 backgroundSize: '300% 100%',
                 animation: 'gradientMove 3s ease infinite',
@@ -351,11 +325,9 @@ function Dashboard() {
                     color: '#ffffff',
                     fontWeight: 800,
                     mb: 2,
-                    background: 'linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #00d4ff 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
                     fontSize: { xs: '2rem', md: '2.5rem' },
+                    textShadow: '0 4px 16px rgba(0,0,0,0.6)',
+                    letterSpacing: '-0.02em',
                   }}
                 >
                   Transport Management Hub
@@ -363,10 +335,11 @@ function Dashboard() {
                 <Typography
                   variant="h6"
                   sx={{
-                    color: 'rgba(255, 255, 255, 0.8)',
+                    color: 'rgba(255, 255, 255, 0.9)',
                     fontWeight: 400,
                     mb: 3,
                     lineHeight: 1.6,
+                    textShadow: '0 2px 8px rgba(0,0,0,0.4)',
                   }}
                 >
                   Advanced analytics and real-time monitoring for your fleet operations
@@ -386,14 +359,19 @@ function Dashboard() {
                           sx={{
                             color: stat.color,
                             fontWeight: 800,
-                            textShadow: `0 0 20px ${stat.color}50`,
+                            textShadow: `0 4px 16px ${stat.color}40, 0 0 20px ${stat.color}30`,
+                            letterSpacing: '-0.02em',
                           }}
                         >
                           {stat.value}
                         </Typography>
                         <Typography
                           variant="body2"
-                          sx={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                          sx={{
+                            color: 'rgba(255, 255, 255, 0.85)',
+                            textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                            fontWeight: 500,
+                          }}
                         >
                           {stat.label}
                         </Typography>
@@ -432,8 +410,8 @@ function Dashboard() {
                 value="284"
                 percentage="+12.5%"
                 trend="up"
-                gradient="rgba(255, 159, 64, 0.2), rgba(255, 99, 132, 0.15)"
-                shadowColor="rgba(255, 159, 64, 0.3)"
+                gradient="rgba(255, 159, 64, 0.3), rgba(255, 99, 132, 0.2)"
+                shadowColor="rgba(255, 159, 64, 0.4)"
               />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -443,8 +421,8 @@ function Dashboard() {
                 value="2,481"
                 percentage="+8.2%"
                 trend="up"
-                gradient="rgba(54, 162, 235, 0.2), rgba(0, 212, 255, 0.15)"
-                shadowColor="rgba(0, 212, 255, 0.3)"
+                gradient="rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.2)"
+                shadowColor="rgba(59, 130, 246, 0.4)"
               />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -454,8 +432,8 @@ function Dashboard() {
                 value="$31,124"
                 percentage="+15.8%"
                 trend="up"
-                gradient="rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.15)"
-                shadowColor="rgba(139, 92, 246, 0.3)"
+                gradient="rgba(16, 185, 129, 0.3), rgba(52, 211, 153, 0.2)"
+                shadowColor="rgba(16, 185, 129, 0.4)"
               />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -465,8 +443,8 @@ function Dashboard() {
                 value="2,125"
                 percentage="+3.1%"
                 trend="up"
-                gradient="rgba(75, 192, 192, 0.2), rgba(0, 255, 136, 0.15)"
-                shadowColor="rgba(0, 255, 136, 0.3)"
+                gradient="rgba(236, 72, 153, 0.3), rgba(251, 113, 133, 0.2)"
+                shadowColor="rgba(236, 72, 153, 0.4)"
               />
             </Grid>
           </Grid>
@@ -542,8 +520,8 @@ function Dashboard() {
         </MDBox>
 
         <Footer />
+        </MDBox>
       </VisionDashboardLayout>
-    </>
   );
 }
 
