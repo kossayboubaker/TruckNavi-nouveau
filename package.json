@@ -1,0 +1,22 @@
+{
+  "name": "transport-management-system",
+  "version": "1.0.0",
+  "description": "Transport Management System with React frontend and Node.js backend",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd material-react-app && npm install && cd ../node-api && npm install",
+    "dev:frontend": "cd material-react-app && npm start",
+    "dev:backend": "cd node-api && npm run start:dev",
+    "build:frontend": "cd material-react-app && npm run build",
+    "start": "cd material-react-app && npm start"
+  },
+  "workspaces": [
+    "material-react-app",
+    "node-api"
+  ],
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
