@@ -55,21 +55,21 @@ const visionColors = {
     },
   },
 
-  // Accent Colors
+  // Accent Colors (basé sur la capture Vision UI)
   accent: {
     neon: {
-      cyan: "#00D4FF",
-      green: "#01B574", 
-      purple: "#9F7AEA",
-      pink: "#FF69B4",
-      orange: "#FFB547",
+      cyan: "#00D4FF",      // Cyan principal comme dans la capture
+      blue: "#4D9AFF",      // Bleu accent
+      teal: "#00E5CC",      // Turquoise pour les graphiques
+      purple: "#8B5CF6",    // Violet pour les accents
+      orange: "#FF8A47",    // Orange pour les alertes
     },
     glow: {
-      cyan: "rgba(0, 212, 255, 0.4)",
-      green: "rgba(1, 181, 116, 0.4)",
-      purple: "rgba(159, 122, 234, 0.4)",
-      pink: "rgba(255, 105, 180, 0.4)",
-      orange: "rgba(255, 181, 71, 0.4)",
+      cyan: "rgba(0, 212, 255, 0.6)",     // Glow plus intense
+      blue: "rgba(77, 154, 255, 0.5)",
+      teal: "rgba(0, 229, 204, 0.5)",
+      purple: "rgba(139, 92, 246, 0.5)",
+      orange: "rgba(255, 138, 71, 0.5)",
     },
   },
 
