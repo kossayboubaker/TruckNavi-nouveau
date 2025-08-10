@@ -292,20 +292,21 @@ function Dashboard() {
         <MDBox mb={3}>
           <Card
             sx={{
-              background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 50%, rgba(0, 212, 255, 0.1) 100%)',
-              backdropFilter: 'blur(30px)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              borderRadius: '28px',
+              background: 'rgba(26, 26, 46, 0.8)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
               p: 4,
               position: 'relative',
               overflow: 'hidden',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
               '&::before': {
                 content: '""',
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
-                height: '4px',
+                height: '3px',
                 background: 'linear-gradient(90deg, #8b5cf6, #ec4899, #00d4ff, #8b5cf6)',
                 backgroundSize: '300% 100%',
                 animation: 'gradientMove 3s ease infinite',
