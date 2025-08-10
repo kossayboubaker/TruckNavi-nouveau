@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "App";
+import PremiumApp from "PremiumApp";
 import { AuthContextProvider } from "context";
 import { SocketProvider } from "context/SocketContext/SocketContext";
 import './index.css';
@@ -11,7 +11,8 @@ import './assets/theme/premium-theme.css';
 
 // Material Dashboard 2 React Context Provider
 import { MaterialUIControllerProvider } from "context";
-import "./i18n"; 
+import "./i18n";
+
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
@@ -20,7 +21,7 @@ root.render(
     <AuthContextProvider>
       <MaterialUIControllerProvider>
         <SocketProvider>
-          <App />
+          <PremiumApp />
         </SocketProvider>
       </MaterialUIControllerProvider>
     </AuthContextProvider>
