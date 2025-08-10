@@ -276,9 +276,9 @@ function Tables() {
                 px={2}
                 variant="gradient"
                 sx={{
-                  background: visionColors.gradients.vision.primary,
+                  background: "linear-gradient(135deg, #00D4FF 0%, #4D9AFF 100%)",
                   borderRadius: "16px",
-                  boxShadow: visionColors.shadows.glow.primary,
+                  boxShadow: "0 0 25px rgba(0, 212, 255, 0.5)",
                 }}
               >
                 <MDTypography variant="h6" color="white" sx={{ fontWeight: 600 }}>
