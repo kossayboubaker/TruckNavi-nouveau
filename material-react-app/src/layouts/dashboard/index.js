@@ -44,19 +44,21 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient, shadowColor }) => (
   <Card
     sx={{
-      background: `linear-gradient(135deg, ${gradient})`,
+      background: `linear-gradient(135deg, ${gradient}), rgba(26, 26, 46, 0.8)`,
+      backgroundBlendMode: 'overlay',
       backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.15)',
-      borderRadius: '20px',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      borderRadius: '16px',
       p: 3,
       height: '160px',
       position: 'relative',
       overflow: 'hidden',
-      transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      transition: 'all 0.3s ease',
       cursor: 'pointer',
+      boxShadow: `0 8px 32px ${shadowColor || 'rgba(0, 0, 0, 0.3)'}`,
       '&:hover': {
-        transform: 'translateY(-8px) scale(1.02)',
-        boxShadow: `0 25px 50px ${shadowColor}`,
+        transform: 'translateY(-6px)',
+        boxShadow: `0 16px 40px ${shadowColor || 'rgba(0, 0, 0, 0.4)'}`,
         border: '1px solid rgba(255, 255, 255, 0.3)',
       },
       '&::before': {
@@ -66,7 +68,7 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'rgba(255, 255, 255, 0.05)',
+        background: 'rgba(255, 255, 255, 0.02)',
         backdropFilter: 'blur(10px)',
         zIndex: 0,
       },
@@ -77,7 +79,7 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
         right: 0,
         width: '100%',
         height: '2px',
-        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)',
+        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)',
       }
     }}
   >
