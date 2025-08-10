@@ -359,14 +359,19 @@ function Dashboard() {
                           sx={{
                             color: stat.color,
                             fontWeight: 800,
-                            textShadow: `0 0 20px ${stat.color}50`,
+                            textShadow: `0 4px 16px ${stat.color}40, 0 0 20px ${stat.color}30`,
+                            letterSpacing: '-0.02em',
                           }}
                         >
                           {stat.value}
                         </Typography>
                         <Typography
                           variant="body2"
-                          sx={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                          sx={{
+                            color: 'rgba(255, 255, 255, 0.85)',
+                            textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                            fontWeight: 500,
+                          }}
                         >
                           {stat.label}
                         </Typography>
