@@ -119,19 +119,21 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
           fontWeight: 800,
           mb: 1,
           fontSize: '2.2rem',
-          textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+          textShadow: '0 4px 12px rgba(0,0,0,0.6)',
+          letterSpacing: '-0.02em',
         }}
       >
         {value}
       </Typography>
-      
+
       <Typography
         variant="h6"
         sx={{
-          color: 'rgba(255, 255, 255, 0.9)',
+          color: 'rgba(255, 255, 255, 0.95)',
           fontWeight: 600,
           mb: 1,
           fontSize: '1rem',
+          textShadow: '0 2px 8px rgba(0,0,0,0.4)',
         }}
       >
         {title}
