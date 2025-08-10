@@ -322,7 +322,7 @@ function Tables() {
                   boxShadow: "0 0 25px rgba(0, 229, 204, 0.5)",
                 }}
               >
-                <MDTypography variant="h6" color="black" sx={{ fontWeight: 600 }}>
+                <MDTypography variant="h6" color="white" sx={{ fontWeight: 600 }}>
                   Projects Table
                 </MDTypography>
               </MDBox>
