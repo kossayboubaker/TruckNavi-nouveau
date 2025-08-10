@@ -112,5 +112,6 @@
     "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.11"
   },
-  "homepage": "https://material-dashboard-react-nodejs.creative-tim.com/"
+  "homepage": "https://material-dashboard-react-nodejs.creative-tim.com/",
+  "proxy": "http://localhost:8080"
 }
