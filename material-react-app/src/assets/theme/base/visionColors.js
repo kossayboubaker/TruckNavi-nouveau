@@ -4,26 +4,26 @@
  */
 
 const visionColors = {
-  // Core Vision UI Colors
+  // Core Vision UI Colors (basé sur la capture)
   core: {
     background: {
-      primary: "#0F1419",
-      secondary: "#1A202C", 
-      tertiary: "#2D3748",
-      glass: "rgba(26, 32, 44, 0.8)",
-      overlay: "rgba(15, 20, 25, 0.9)",
+      primary: "#0B0E27",        // Bleu très foncé comme dans la capture
+      secondary: "#151B3D",      // Bleu foncé pour les cartes
+      tertiary: "#1E2A78",       // Bleu moyen
+      glass: "rgba(21, 27, 61, 0.8)",
+      overlay: "rgba(11, 14, 39, 0.95)",
     },
     text: {
       primary: "#FFFFFF",
-      secondary: "#A0AEC0",
-      tertiary: "#718096",
+      secondary: "#B8C2DB",      // Bleu clair pour le texte secondaire
+      tertiary: "#8B95B8",       // Bleu moyen pour le texte tertiaire
       disabled: "#4A5568",
-      accent: "#E2E8F0",
+      accent: "#E8EEFF",         // Blanc très légèrement teinté de bleu
     },
     border: {
-      primary: "rgba(255, 255, 255, 0.1)",
-      secondary: "rgba(255, 255, 255, 0.05)",
-      accent: "rgba(255, 255, 255, 0.2)",
+      primary: "rgba(184, 194, 219, 0.12)",  // Bordure bleutée subtile
+      secondary: "rgba(184, 194, 219, 0.06)",
+      accent: "rgba(0, 212, 255, 0.25)",     // Bordure cyan pour les accents
     },
   },
 
