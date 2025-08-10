@@ -6,9 +6,6 @@ import { AuthContextProvider } from "context";
 import { SocketProvider } from "context/SocketContext/SocketContext";
 import './index.css';
 
-// Import professional dashboard styles
-import './assets/theme/professional-dashboard.css';
-
 // Material Dashboard 2 React Context Provider
 import { MaterialUIControllerProvider } from "context";
 import "./i18n"; 
