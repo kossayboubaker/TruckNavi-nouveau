@@ -73,19 +73,19 @@ const visionColors = {
     },
   },
 
-  // Gradient System
+  // Gradient System (basé sur la capture Vision UI)
   gradients: {
     primary: {
-      main: "linear-gradient(135deg, #1E2A78 0%, #3F51B5 100%)",
-      state: "linear-gradient(135deg, #1A237E 0%, #303F9F 100%)",
-      light: "linear-gradient(135deg, #3F51B5 0%, #5C6BC0 100%)",
-      dark: "linear-gradient(135deg, #0D1642 0%, #1A237E 100%)",
+      main: "linear-gradient(135deg, #151B3D 0%, #1E2A78 100%)",        // Bleu foncé vers bleu moyen
+      state: "linear-gradient(135deg, #0B0E27 0%, #151B3D 100%)",       // Plus sombre pour hover
+      light: "linear-gradient(135deg, #1E2A78 0%, #4D9AFF 100%)",       // Vers bleu clair
+      dark: "linear-gradient(135deg, #070A1F 0%, #0B0E27 100%)",        // Très sombre
     },
     secondary: {
-      main: "linear-gradient(135deg, #5C2DD5 0%, #7B42F6 100%)",
-      state: "linear-gradient(135deg, #44337A 0%, #673AB7 100%)",
-      light: "linear-gradient(135deg, #7B42F6 0%, #9F7AEA 100%)",
-      dark: "linear-gradient(135deg, #44337A 0%, #5C2DD5 100%)",
+      main: "linear-gradient(135deg, #00D4FF 0%, #4D9AFF 100%)",        // Cyan vers bleu
+      state: "linear-gradient(135deg, #00B8E6 0%, #0099CC 100%)",       // Plus sombre
+      light: "linear-gradient(135deg, #4D9AFF 0%, #00E5CC 100%)",       // Vers turquoise
+      dark: "linear-gradient(135deg, #006B8F 0%, #004A63 100%)",        // Foncé
     },
     info: {
       main: "linear-gradient(135deg, #00D4FF 0%, #4DDDFF 100%)",
