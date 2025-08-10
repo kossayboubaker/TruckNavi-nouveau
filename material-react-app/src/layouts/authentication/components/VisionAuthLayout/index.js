@@ -241,13 +241,14 @@ function VisionAuthLayout({ children }) {
               }}
             >
               {/* Mobile Title */}
-              <Box sx={{ display: { xs: 'block', lg: 'none' }, textAlign: 'center', mb: 4 }}>
+              <Box sx={{ display: { xs: 'block', lg: 'none' }, textAlign: 'center', mb: { xs: 2, sm: 3 } }}>
                 <Typography
-                  variant="h3"
+                  variant="h4"
                   sx={{
                     color: 'white',
                     fontWeight: 700,
-                    mb: 2,
+                    mb: 1,
+                    fontSize: { xs: '1.75rem', sm: '2.125rem' },
                     background: 'linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
@@ -260,7 +261,8 @@ function VisionAuthLayout({ children }) {
                   variant="body1"
                   sx={{
                     color: '#A0AEC0',
-                    mb: 3,
+                    fontSize: { xs: '0.875rem', sm: '1rem' },
+                    mb: 1,
                   }}
                 >
                   {getPageDescription()}
