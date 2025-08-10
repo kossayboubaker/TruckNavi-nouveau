@@ -35,6 +35,7 @@ MDInput.defaultProps = {
   error: false,
   success: false,
   disabled: false,
+  useVision: true,
 };
 
 // Typechecking props for the MDInput
@@ -42,6 +43,7 @@ MDInput.propTypes = {
   error: PropTypes.bool,
   success: PropTypes.bool,
   disabled: PropTypes.bool,
+  useVision: PropTypes.bool,
 };
 
 export default MDInput;
