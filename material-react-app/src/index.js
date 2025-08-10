@@ -8,6 +8,7 @@ import './index.css';
 
 // Import premium theme inspired by dashboard screenshots
 import './assets/theme/premium-theme.css';
+import './assets/theme/premium-responsive.css';
 
 // Material Dashboard 2 React Context Provider
 import { MaterialUIControllerProvider } from "context";
