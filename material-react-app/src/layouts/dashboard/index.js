@@ -157,18 +157,21 @@ const PremiumStatCard = ({ icon: Icon, title, value, percentage, trend, gradient
 const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) => (
   <Card
     sx={{
-      background: 'rgba(15, 20, 30, 0.8)',
-      backdropFilter: 'blur(25px)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '24px',
+      background: 'rgba(26, 26, 46, 0.95)',
+      backdropFilter: 'blur(20px)',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      borderRadius: '20px',
       p: 3,
       height: '420px',
       position: 'relative',
       overflow: 'hidden',
       transition: 'all 0.3s ease',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
       '&:hover': {
-        border: '1px solid rgba(139, 92, 246, 0.3)',
-        background: 'rgba(15, 20, 30, 0.9)',
+        border: '1px solid rgba(139, 92, 246, 0.4)',
+        background: 'rgba(26, 26, 46, 1)',
+        transform: 'translateY(-4px)',
+        boxShadow: '0 12px 40px rgba(0, 0, 0, 0.5)',
       },
       '&::before': {
         content: '""',
@@ -177,7 +180,7 @@ const PremiumChartCard = ({ title, subtitle, children, gradient, icon: Icon }) =
         left: 0,
         right: 0,
         height: '3px',
-        background: gradient,
+        background: gradient || 'linear-gradient(90deg, #8b5cf6, #3b82f6)',
       }
     }}
   >
