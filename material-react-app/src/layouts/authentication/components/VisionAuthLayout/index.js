@@ -93,14 +93,18 @@ function VisionAuthLayout({ children }) {
       {/* Content Container */}
       <Container
         maxWidth="lg"
+        className="vision-no-scroll-x"
         sx={{
           minHeight: '100vh',
+          maxHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          py: 4,
+          py: { xs: 2, sm: 3, md: 4 },
+          px: { xs: 2, sm: 3 },
           position: 'relative',
           zIndex: 1,
+          overflow: 'hidden',
         }}
       >
         <Grid container spacing={4} alignItems="center" justifyContent="center">
