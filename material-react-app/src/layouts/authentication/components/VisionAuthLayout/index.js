@@ -1,10 +1,10 @@
 /**
- * Vision UI Authentication Layout
- * Modern glassmorphism authentication layout with dark theme
+ * Premium Vision UI Authentication Layout
+ * Inspired by modern dashboard designs with stunning gradients
  */
 
 import PropTypes from "prop-types";
-import { Box, Container, Grid, Typography, alpha } from "@mui/material";
+import { Box, Container, Grid, Typography, Avatar, Chip } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
@@ -12,29 +12,42 @@ import { useLocation } from "react-router-dom";
 import MDBox from "components/MDBox";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
+// Icons
+import SecurityIcon from '@mui/icons-material/Security';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import SpeedIcon from '@mui/icons-material/Speed';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+
 function VisionAuthLayout({ children }) {
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
   const getPageTitle = () => {
-    if (pathname.includes('/login')) return t("form3.signIn");
-    if (pathname.includes('/register')) return t("signUp");
-    if (pathname.includes('/forgot-password')) return t("forgotPassword");
-    if (pathname.includes('/reset-password')) return t("resetPassword");
+    if (pathname.includes('/login')) return t("form3.signIn") || "Welcome Back";
+    if (pathname.includes('/register')) return t("signUp") || "Create Account";
+    if (pathname.includes('/forgot-password')) return t("forgotPassword") || "Reset Password";
+    if (pathname.includes('/reset-password')) return t("resetPassword") || "New Password";
     return "Authentication";
   };
 
   const getPageDescription = () => {
-    if (pathname.includes('/login')) return "Welcome back! Please sign in to your account.";
-    if (pathname.includes('/register')) return "Create your account to get started.";
-    if (pathname.includes('/forgot-password')) return "Enter your email to reset your password.";
-    if (pathname.includes('/reset-password')) return "Enter your new password.";
-    return "Secure access to your dashboard";
+    if (pathname.includes('/login')) return "Sign in to access your fleet management dashboard";
+    if (pathname.includes('/register')) return "Join thousands of fleet managers worldwide";
+    if (pathname.includes('/forgot-password')) return "We'll send you a secure reset link";
+    if (pathname.includes('/reset-password')) return "Create a strong, secure password";
+    return "Secure access to your transport management system";
   };
+
+  const features = [
+    { icon: SecurityIcon, title: 'Enterprise Security', desc: 'Bank-level encryption' },
+    { icon: SpeedIcon, title: 'Real-time Analytics', desc: 'Live fleet monitoring' },
+    { icon: VerifiedUserIcon, title: 'Compliance Ready', desc: 'Industry standards' },
+    { icon: SupportAgentIcon, title: '24/7 Support', desc: 'Expert assistance' },
+  ];
 
   return (
     <PageLayout>
-      {/* Main Background */}
+      {/* Premium Background inspired by screenshots */}
       <Box
         sx={{
           position: 'fixed',
@@ -42,12 +55,12 @@ function VisionAuthLayout({ children }) {
           left: 0,
           width: '100%',
           height: '100vh',
-          background: 'linear-gradient(135deg, #0F1419 0%, #1A202C 50%, #2D3748 100%)',
-          zIndex: -2,
+          background: 'linear-gradient(135deg, #1a0d2e 0%, #0f0f23 25%, #16213e 50%, #0a0e27 75%, #1a0d2e 100%)',
+          zIndex: -10,
         }}
       />
 
-      {/* Animated Background Elements */}
+      {/* Animated gradient orbs */}
       <Box
         sx={{
           position: 'fixed',
@@ -55,48 +68,86 @@ function VisionAuthLayout({ children }) {
           left: 0,
           width: '100%',
           height: '100vh',
-          zIndex: -1,
+          zIndex: -5,
           overflow: 'hidden',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            width: '800px',
-            height: '800px',
-            background: 'radial-gradient(circle, rgba(30, 42, 120, 0.3) 0%, transparent 70%)',
-            top: '-400px',
-            right: '-400px',
-            borderRadius: '50%',
-            animation: 'float 20s ease-in-out infinite',
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: '600px',
-            height: '600px',
-            background: 'radial-gradient(circle, rgba(92, 45, 213, 0.2) 0%, transparent 70%)',
-            bottom: '-300px',
-            left: '-300px',
-            borderRadius: '50%',
-            animation: 'float 25s ease-in-out infinite reverse',
-          },
-          '@keyframes float': {
-            '0%, 100%': {
-              transform: 'translateY(0) rotate(0deg)',
-            },
-            '50%': {
-              transform: 'translateY(-30px) rotate(180deg)',
-            },
-          },
         }}
-      />
+      >
+        {/* Purple gradient orb */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '15%',
+            right: '-250px',
+            width: '500px',
+            height: '500px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%)',
+            animation: 'premiumFloat 20s ease-in-out infinite',
+            '@keyframes premiumFloat': {
+              '0%, 100%': { 
+                transform: 'translate(0, 0) rotate(0deg) scale(1)' 
+              },
+              '33%': { 
+                transform: 'translate(20px, -30px) rotate(120deg) scale(1.1)' 
+              },
+              '66%': { 
+                transform: 'translate(-15px, 25px) rotate(240deg) scale(0.9)' 
+              },
+            },
+          }}
+        />
+        
+        {/* Cyan gradient orb */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: '20%',
+            left: '-200px',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, rgba(0, 212, 255, 0.08) 40%, transparent 70%)',
+            animation: 'premiumFloat 25s ease-in-out infinite reverse',
+          }}
+        />
+        
+        {/* Pink accent orb */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '60%',
+            left: '70%',
+            width: '300px',
+            height: '300px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(236, 72, 153, 0.06) 40%, transparent 70%)',
+            animation: 'premiumFloat 30s ease-in-out infinite',
+          }}
+        />
+
+        {/* Grid overlay */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `
+              linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            opacity: 0.4,
+          }}
+        />
+      </Box>
 
       {/* Content Container */}
       <Container
-        maxWidth="lg"
-        className="vision-no-scroll-x"
+        maxWidth="xl"
         sx={{
           minHeight: '100vh',
-          maxHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -104,120 +155,124 @@ function VisionAuthLayout({ children }) {
           px: { xs: 2, sm: 3 },
           position: 'relative',
           zIndex: 1,
-          overflow: 'hidden',
         }}
       >
-        <Grid container spacing={4} alignItems="center" justifyContent="center">
-          {/* Left Side - Branding/Info */}
+        <Grid container spacing={{ xs: 3, lg: 6 }} alignItems="center" justifyContent="center">
+          {/* Left Side - Premium Branding */}
           <Grid item xs={12} lg={6} sx={{ display: { xs: 'none', lg: 'block' } }}>
-            <MDBox sx={{ pr: 4 }}>
+            <MDBox sx={{ pr: { lg: 4, xl: 6 } }}>
+              {/* Main Title with premium gradient */}
               <Typography
-                variant="h2"
+                variant="h1"
+                className="premium-title"
                 sx={{
-                  color: 'white',
-                  fontWeight: 700,
                   mb: 3,
-                  background: 'linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontSize: { xs: '2rem', md: '3rem', lg: '3.5rem' },
-                  lineHeight: 1.2,
+                  fontSize: { lg: '3.5rem', xl: '4rem' },
+                  lineHeight: 1.1,
+                  fontWeight: 900,
                 }}
               >
-                {t("layout.title") || "Fleet Management"}
+                Fleet Management
+                <Box component="span" sx={{ display: 'block', color: 'rgba(255,255,255,0.8)' }}>
+                  Revolution
+                </Box>
               </Typography>
               
               <Typography
                 variant="h5"
+                className="premium-subtitle"
                 sx={{
-                  color: '#A0AEC0',
                   mb: 4,
+                  fontSize: { lg: '1.25rem', xl: '1.5rem' },
                   lineHeight: 1.6,
-                  fontWeight: 400,
                 }}
               >
-                Advanced logistics and delivery tracking system for modern fleet management
+                Experience the future of logistics with our AI-powered platform that transforms 
+                how you manage, track, and optimize your fleet operations.
               </Typography>
 
-              {/* Feature List */}
-              <Box sx={{ mb: 4 }}>
-                {[
-                  'Real-time vehicle tracking',
-                  'Advanced route optimization',
-                  'Comprehensive analytics',
-                  'Smart notifications system'
-                ].map((feature, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      mb: 2,
-                      opacity: 0,
-                      animation: `slideIn 0.6s ease-out ${index * 0.1}s forwards`,
-                      '@keyframes slideIn': {
-                        from: {
-                          opacity: 0,
-                          transform: 'translateX(-20px)',
-                        },
-                        to: {
-                          opacity: 1,
-                          transform: 'translateX(0)',
-                        },
-                      },
-                    }}
-                  >
+              {/* Feature Grid */}
+              <Grid container spacing={3} sx={{ mb: 5 }}>
+                {features.map((feature, index) => (
+                  <Grid item xs={6} key={index}>
                     <Box
                       sx={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #00D4FF, #01B574)',
-                        mr: 3,
-                        boxShadow: '0 0 10px rgba(0, 212, 255, 0.4)',
-                      }}
-                    />
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: '#CBD5E0',
-                        fontWeight: 500,
+                        p: 3,
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        backdropFilter: 'blur(15px)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        borderRadius: '16px',
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer',
+                        '&:hover': {
+                          transform: 'translateY(-4px)',
+                          background: 'rgba(139, 92, 246, 0.1)',
+                          border: '1px solid rgba(139, 92, 246, 0.3)',
+                          boxShadow: '0 10px 30px rgba(139, 92, 246, 0.2)',
+                        },
                       }}
                     >
-                      {feature}
-                    </Typography>
-                  </Box>
+                      <Avatar
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          mb: 2,
+                          background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2))',
+                          border: '1px solid rgba(139, 92, 246, 0.3)',
+                        }}
+                      >
+                        <feature.icon sx={{ color: '#8b5cf6', fontSize: 24 }} />
+                      </Avatar>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: '#ffffff',
+                          fontWeight: 600,
+                          mb: 1,
+                          fontSize: '1rem',
+                        }}
+                      >
+                        {feature.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: 'rgba(255, 255, 255, 0.7)',
+                          fontSize: '0.875rem',
+                        }}
+                      >
+                        {feature.desc}
+                      </Typography>
+                    </Box>
+                  </Grid>
                 ))}
-              </Box>
+              </Grid>
 
-              {/* Decorative Stats */}
-              <Box sx={{ display: 'flex', gap: 4, mt: 6 }}>
+              {/* Premium Stats */}
+              <Box sx={{ display: 'flex', gap: 4 }}>
                 {[
-                  { number: '99.9%', label: 'Uptime' },
-                  { number: '24/7', label: 'Support' },
-                  { number: '500+', label: 'Fleets' },
+                  { number: '99.9%', label: 'Uptime', color: '#00ff88' },
+                  { number: '2M+', label: 'Vehicles', color: '#00d4ff' },
+                  { number: '150+', label: 'Countries', color: '#8b5cf6' },
                 ].map((stat, index) => (
                   <Box key={index} sx={{ textAlign: 'center' }}>
                     <Typography
-                      variant="h4"
+                      variant="h3"
                       sx={{
-                        color: 'white',
-                        fontWeight: 700,
+                        color: stat.color,
+                        fontWeight: 800,
                         mb: 1,
-                        background: 'linear-gradient(135deg, #5C2DD5, #7B42F6)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
+                        textShadow: `0 0 20px ${stat.color}50`,
+                        fontSize: { lg: '2.5rem', xl: '3rem' },
                       }}
                     >
                       {stat.number}
                     </Typography>
                     <Typography
-                      variant="body2"
+                      variant="body1"
                       sx={{
-                        color: '#A0AEC0',
-                        fontSize: '0.875rem',
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        fontSize: '1rem',
                         fontWeight: 500,
                       }}
                     >
@@ -226,10 +281,32 @@ function VisionAuthLayout({ children }) {
                   </Box>
                 ))}
               </Box>
+
+              {/* Trust Badges */}
+              <Box sx={{ mt: 5, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                {['ISO 27001', 'SOC 2', 'GDPR Ready', 'Enterprise'].map((badge, index) => (
+                  <Chip
+                    key={index}
+                    label={badge}
+                    sx={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontWeight: 600,
+                      fontSize: '0.75rem',
+                      '&:hover': {
+                        background: 'rgba(139, 92, 246, 0.2)',
+                        border: '1px solid rgba(139, 92, 246, 0.4)',
+                      },
+                    }}
+                  />
+                ))}
+              </Box>
             </MDBox>
           </Grid>
 
-          {/* Right Side - Auth Form */}
+          {/* Right Side - Authentication Form */}
           <Grid item xs={12} lg={6}>
             <MDBox
               sx={{
@@ -240,71 +317,79 @@ function VisionAuthLayout({ children }) {
                 minHeight: { xs: '80vh', lg: 'auto' },
               }}
             >
-              {/* Mobile Title */}
-              <Box sx={{ display: { xs: 'block', lg: 'none' }, textAlign: 'center', mb: { xs: 2, sm: 3 } }}>
+              {/* Mobile/Tablet Title */}
+              <Box sx={{ display: { xs: 'block', lg: 'none' }, textAlign: 'center', mb: 3 }}>
                 <Typography
-                  variant="h4"
+                  variant="h3"
+                  className="premium-title"
                   sx={{
-                    color: 'white',
-                    fontWeight: 700,
                     mb: 1,
-                    fontSize: { xs: '1.75rem', sm: '2.125rem' },
-                    background: 'linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
+                    fontSize: { xs: '2rem', sm: '2.5rem' },
                   }}
                 >
                   {getPageTitle()}
                 </Typography>
                 <Typography
-                  variant="body1"
+                  variant="h6"
+                  className="premium-subtitle"
                   sx={{
-                    color: '#A0AEC0',
-                    fontSize: { xs: '0.875rem', sm: '1rem' },
-                    mb: 1,
+                    fontSize: { xs: '1rem', sm: '1.125rem' },
                   }}
                 >
                   {getPageDescription()}
                 </Typography>
               </Box>
 
-              {/* Auth Card */}
+              {/* Premium Auth Card */}
               <Box
-                className="vision-card"
                 sx={{
                   width: '100%',
-                  maxWidth: { xs: '100%', sm: '440px' },
-                  background: 'rgba(26, 32, 44, 0.8)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: { xs: '16px', sm: '24px' },
-                  p: { xs: 2, sm: 3, md: 4 },
-                  mx: { xs: 1, sm: 0 },
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  maxWidth: { xs: '100%', sm: '480px', lg: '520px' },
+                  background: 'rgba(15, 20, 30, 0.8)',
+                  backdropFilter: 'blur(30px)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: { xs: '20px', sm: '28px' },
+                  p: { xs: 3, sm: 4, md: 5 },
                   position: 'relative',
                   overflow: 'hidden',
-                  maxHeight: { xs: 'calc(100vh - 120px)', sm: 'none' },
-                  overflowY: { xs: 'auto', sm: 'visible' },
+                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
                   '&::before': {
                     content: '""',
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     right: 0,
-                    height: '2px',
-                    background: 'linear-gradient(90deg, #5C2DD5, #7B42F6, #00D4FF)',
+                    height: '3px',
+                    background: 'linear-gradient(90deg, #8b5cf6, #ec4899, #00d4ff, #8b5cf6)',
+                    backgroundSize: '300% 100%',
+                    animation: 'gradientMove 3s ease infinite',
+                    '@keyframes gradientMove': {
+                      '0%, 100%': { backgroundPosition: '0% 50%' },
+                      '50%': { backgroundPosition: '100% 50%' },
+                    },
+                  },
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(255, 255, 255, 0.02)',
+                    backdropFilter: 'blur(5px)',
+                    zIndex: 0,
                   },
                 }}
               >
                 {/* Desktop Title */}
-                <Box sx={{ display: { xs: 'none', lg: 'block' }, textAlign: 'center', mb: 4 }}>
+                <Box sx={{ display: { xs: 'none', lg: 'block' }, textAlign: 'center', mb: 4, position: 'relative', zIndex: 1 }}>
                   <Typography
                     variant="h4"
                     sx={{
-                      color: 'white',
-                      fontWeight: 600,
+                      color: '#ffffff',
+                      fontWeight: 700,
                       mb: 1,
+                      fontSize: '1.75rem',
                     }}
                   >
                     {getPageTitle()}
@@ -312,26 +397,43 @@ function VisionAuthLayout({ children }) {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: '#A0AEC0',
+                      color: 'rgba(255, 255, 255, 0.8)',
+                      fontSize: '1rem',
                     }}
                   >
                     {getPageDescription()}
                   </Typography>
                 </Box>
 
-                {children}
+                {/* Form Content */}
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
+                  {children}
+                </Box>
               </Box>
 
-              {/* Additional Links or Info */}
-              <Box sx={{ mt: 3, textAlign: 'center' }}>
+              {/* Security Notice */}
+              <Box sx={{ mt: 4, textAlign: 'center' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                  <SecurityIcon sx={{ color: '#00ff88', mr: 1, fontSize: 20 }} />
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'rgba(255, 255, 255, 0.8)',
+                      fontSize: '0.875rem',
+                      fontWeight: 500,
+                    }}
+                  >
+                    256-bit SSL Encrypted • SOC 2 Compliant • GDPR Ready
+                  </Typography>
+                </Box>
                 <Typography
-                  variant="body2"
+                  variant="caption"
                   sx={{
-                    color: '#718096',
-                    fontSize: '0.875rem',
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    fontSize: '0.75rem',
                   }}
                 >
-                  Secure • Encrypted • Protected
+                  Your data is protected with enterprise-grade security
                 </Typography>
               </Box>
             </MDBox>
