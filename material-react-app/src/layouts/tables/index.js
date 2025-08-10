@@ -215,7 +215,7 @@ function Tables() {
           sx={{ 
             p: 4, 
             borderRadius: "24px",
-            background: "linear-gradient(135deg, rgba(30, 42, 120, 0.1) 0%, rgba(92, 45, 213, 0.05) 100%)",
+            background: "linear-gradient(135deg, rgba(21, 27, 61, 0.6) 0%, rgba(30, 42, 120, 0.3) 100%)",
             position: "relative",
             overflow: "hidden",
             "&::before": {
@@ -225,7 +225,7 @@ function Tables() {
               left: 0,
               right: 0,
               height: "4px",
-              background: "linear-gradient(90deg, #1E2A78, #5C2DD5, #7B42F6, #00D4FF)",
+              background: "linear-gradient(90deg, #00D4FF, #4D9AFF, #00E5CC, #8B5CF6)",
             }
           }}
         >
